@@ -1,11 +1,13 @@
+body, html{
+  height: 74vh;
+}
 body{
-    background-color:#fff;
+  background-image: url('../images/11.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 100%;
-    /* background-color:rgb(101, 101, 240); */
+    /* height: 70hv; */
     margin: 0;
     padding: 0;
   }
@@ -147,6 +149,27 @@ body{
     width: 100%;
     text-align: center;
   }
+  /* Landing page starts here */
+  .third-div{
+    margin-top: 200px;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 30%; */
+    /* margin: auto; */
+    /* margin: auto; */
+  }
+  #para{
+    font-size: 22px;
+    width: 26%;
+    text-align: center;
+  }
+  input{
+    padding: 12px
+  }
+  /* Ends here */
   @media screen and (max-width: 680px){
     .element-container{
       background-color:greenyellow;
