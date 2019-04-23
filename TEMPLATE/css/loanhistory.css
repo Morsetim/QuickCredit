@@ -121,6 +121,9 @@ body{
         margin-top: 200px; 
         flex-flow: column
       }
+      #loan-container{
+        margin-top: 300px; 
+      }
       .loan-container a{
         list-style-type: none;
         text-decoration: none;
@@ -134,10 +137,11 @@ body{
           height: 70px;
       }
       td{
-          width: 40%;
+          width: 50%;
           text-align: center;
           padding: 12px;
       }
+      
       th{
         width: 40%;
         text-align: center;

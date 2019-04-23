@@ -8,13 +8,7 @@ body{
   margin: 0;
   padding: 0;
 }
-.dashboard-body{
-  background-color: #fff;
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
+
 #first-div{
   display: flex;
   justify-content: flex-end;
@@ -238,7 +232,7 @@ input[type=submit]{
   /* dashboard container section */
   .dash-board-container{
     display: flex;
-    margin-top: 390px;
+    margin-top: 290px;
     justify-content: center;
     align-items: center;  
   }
@@ -251,22 +245,23 @@ input[type=submit]{
     width: 277px;
     height: 160px;
     background-color: #ffffff;
-    color: #c2cb42;
+    color:black;
   }
   ul li{
     list-style-type: none;
     padding: 10px;
   }
   #apply{
-    margin-top: -39px;
+    margin-top: -9px;
     margin-right: 45px;
     font-size: 22px
   }
   #money-li{
-    margin-bottom:-50px;
-    margin-left: 39px;
+    /* margin-bottom:-50px; */
+    margin-right: 45px;
     font-size: 28px;
     color:black;
+    text-align: center;
   }
   /* Ends here */
 
