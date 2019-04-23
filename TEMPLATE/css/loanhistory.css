@@ -61,14 +61,14 @@ body{
   }
   /* font awesome section */
   .fa-skating{
-    color: #92bf20;
+    color: #2b6898;
   }
   .far{
-    color:green;
+    color:#2b6898;
     margin-right: 4px;
   }
   .fa-pen{
-    color: green;
+    color: #2b6898;
     margin-right: 4px;
   }
   /* Ends here */
@@ -118,8 +118,16 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 200px;
-        
+        margin-top: 200px; 
+        flex-flow: column
+      }
+      .loan-container a{
+        list-style-type: none;
+        text-decoration: none;
+        color: black;
+      }
+      #h2-text{
+        margin-top: -11px;
       }
       .loan-history-table{
           width: 70%;

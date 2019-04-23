@@ -50,14 +50,14 @@ body{
 }
 /* font awesome section */
 .fa-skating{
-  color: #92bf20;
+  color: #2b6898;
 }
 .far{
-  color:green;
+  color:#2b6898;
   margin-right: 4px;
 }
 .fa-pen{
-  color: green;
+  color: #2b6898;
   margin-right: 4px;
 }
 /* Ends here */
@@ -202,7 +202,7 @@ input[type=submit]{
 #forget-password{
   margin: 0px 0px 0px 165px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 250px;
+  width: 150px;
   color: #92bf20;
   }
   #a-forget-password{
@@ -212,6 +212,7 @@ input[type=submit]{
   #create-account{
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 9px;
+    
   }
   a#create-account{
     color: #92bf20;
