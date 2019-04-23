@@ -48,6 +48,17 @@ body{
     padding: 5px;
     text-decoration: none;
   }
+  .ul-container{
+    margin-top: 45px;
+    margin-right: 45px;
+  }
+  ul li{
+    list-style-type: none;
+  }
+  .ul-list{
+    color: #f4f4f4;
+    text-decoration: none;
+  }
   /* font awesome section */
   .fa-skating{
     color: #92bf20;
