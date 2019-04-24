@@ -220,6 +220,16 @@ input[type=submit]{
     text-decoration-line: none
   }
   /* Apply container section */
+  #apply-container{
+    margin-top: 105px;
+    height: 500px;
+  }
+  #apply-form-container{
+    margin-top: -25px;
+  }
+  #apply1{
+    margin-top: -35px;
+  }
   .tenor-container{
     width: 70%;
     margin: 8px 0px 8px 125px;
@@ -287,11 +297,25 @@ body{
   height: 100vh;
 }
 #apply-form-container{
-  width: 60%;
+  width: 100%;
+  margin: auto;
+  margin-left: 75px;
 }
 #apply-container{
-  width: 70%;
+  width: 75%;
   height: 460px;
+  margin-right: 25px;
+}
+h4, #loc-name, .fa-skating{
+  margin-left: 2px;
+}
+#loc-name{
+  margin-left: 28px;
+}
+#apply1{
+  font-size: 22px;
+  margin-top: -15px;
+  margin-left: -15px
 }
 input[type=email], input[type=password], input[type=text], input[type=number],input[type=submit]{
   width: 40%;
@@ -308,8 +332,8 @@ input[type=email], input[type=password], input[type=text], input[type=number],in
 }
 .tenor-container{
   display: flex;
-  width: 100%;
-  margin-left: 25px;
+  width: 47%;
+  margin-left: 2px;
   font-size: 15px;
   color: #2c3642;
 }
