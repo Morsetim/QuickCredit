@@ -158,5 +158,16 @@ body{
         width: 100%;
         text-align: center;
       }
-    
+      /* Ends here */
+      /* Approve or Reject table */
+      #approve-reject-table{
+        margin-left: -290px;
+      }
+      input[type="checkbox"]{
+        width: 30px; 
+        height: 30px; 
+        cursor: pointer;
+        color: green;
+      }
+      
       /* Ends here */
