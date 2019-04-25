@@ -64,7 +64,7 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: #2c3642;
-    height: 100px;
+    height: 80px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -73,6 +73,7 @@ body{
     display: flex;
     flex-flow: column;
     margin-left: 50px;
+    margin-top: -19px
   }
   #h1-id{
     color: #fff;
@@ -89,7 +90,7 @@ body{
     display: flex;
     list-style-type: none;
     padding: 10px;
-    margin: 45px 19px 15px 0px;
+    margin: 24px 19px 15px 0px;
   }
   .ul-list{
     text-decoration: none;
@@ -162,11 +163,16 @@ body{
   }
   #para{
     font-size: 22px;
-    width: 26%;
+    width: 36%;
     text-align: center;
   }
   input{
-    padding: 12px
+    padding: 12px;
+    background-color: #2b6898;
+    color: #f4f4f4;
+    margin-top: -15px;
+    border-radius: 12px;
+    box-sizing: border-box;
   }
   .fourth-div{
     width: 90%;
@@ -174,18 +180,30 @@ body{
     margin: auto;
     justify-content: center;
     align-items: center;
+    margin-top: 41px;
   }
 .fourth-div-element{
-    margin-top: 40px;
-    height: 140px;
-    width: 15%;
-    border: 1px solid rgb(114, 114, 235);
-    background-color: #fff;
+    margin-top: 60px;
+    height: 70px;
+    width: 10%;
+    border: 1px solid #2b6898;
     display: flex;
+    cursor: pointer;
     text-align: center;
-    font-size: 25px;
-    /* margin-top: 25px; */
-    /* padding: 10px; */
+    font-size: 15px;
+    /* background-color: #2b6898; */
+    color: #f4f4f4;
+    font-weight: 300;
+    padding-top: 25px;
+}
+.fourth-div-element:hover{
+  background-color: #2b6898; 
+}
+#quick{
+  padding-left: 11px
+}
+#afford{
+  margin: 0 5px 0 5px;
 }
   /* Ends here */
   @media screen and (max-width: 680px){

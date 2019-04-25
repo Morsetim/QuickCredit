@@ -133,11 +133,11 @@ h1{
   display: flex;
   margin: auto;
   width: 600px;
-  height: 520px;
+  height: 470px;
   flex-flow: column;
-  margin-top: 65px;
+  /* margin-top: 5px; */
   padding :0px;
-  margin-top: 150px;
+  margin-top: 110px;
 }
 .element-container-sign-in{
   background-color:#f4f4f4;
@@ -163,12 +163,16 @@ h1{
 .login-password-recovery{
   display: flex;
 }
-
+#signup{
+  /* margin-right: 99px; */
+  margin-top: -33px;
+}
 .form-container{
 display: flex;
 flex-flow: column;
 width: 430px;
 margin-left: 39px;
+margin-top: -30px
 }
 
 input[type=email], input[type=password], input[type=text], input[type=number]{
@@ -328,7 +332,8 @@ input[type=email], input[type=password], input[type=text], input[type=number],in
   font-size: 12px;
 }
 #signup{
-  margin-right: 99px
+  margin-right: 99px;
+  
 }
 .tenor-container{
   display: flex;
