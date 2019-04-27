@@ -1,4 +1,6 @@
-
+*{
+  box-sizing: border-box;
+}
 body{
     /* background-image: url('../images/46635495905_13e312f3cd_k.jpg'); */
     background-repeat: no-repeat;
@@ -150,6 +152,7 @@ body{
     margin-top: 65px;
     padding :0px;
     margin-top: 150px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
   #loc-name{
     font-size: 10px;
@@ -253,7 +256,7 @@ button{
       display: flex;
       margin-top: 290px;
       justify-content: center;
-      align-items: center;  
+      align-items: center; 
     }
     .dash-board-container a{
       text-decoration: none;
@@ -265,6 +268,7 @@ button{
       height: 160px;
       background-color: #ffffff;
       color:black;
+      /* padding-right: 30px; */
     }
     ul li{
       list-style-type: none;
