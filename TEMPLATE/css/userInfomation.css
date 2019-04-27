@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 body{
   /* background-image: url('../images/46635495905_13e312f3cd_k.jpg'); */
   background-repeat: no-repeat;
@@ -133,11 +136,12 @@ h1{
   display: flex;
   margin: auto;
   width: 600px;
-  height: 520px;
+  height: 470px;
   flex-flow: column;
-  margin-top: 65px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  /* margin-top: 5px; */
   padding :0px;
-  margin-top: 150px;
+  margin-top: 110px;
 }
 .element-container-sign-in{
   background-color:#f4f4f4;
@@ -160,18 +164,22 @@ h1{
   margin-bottom: -18px;
   font-size: 22px;
 }
-.login-password-recovery{
+/* .login-password-recovery{
   display: flex;
+} */
+#signup{
+  /* margin-right: 99px; */
+  margin-top: -33px;
 }
-
 .form-container{
 display: flex;
 flex-flow: column;
 width: 430px;
 margin-left: 39px;
+margin-top: -30px
 }
 
-input[type=email], input[type=password], input[type=text], input[type=number]{
+input[type=email], input[type=password], [type=text], input[type=number]{
   width: 70%;
   padding: 10px 6px;
   margin: 8px 0px 8px 125px;
@@ -181,7 +189,7 @@ input[type=email], input[type=password], input[type=text], input[type=number]{
   box-sizing: border-box;
   font-size: 14px;
 }
-input[type=submit]{
+button{
   width: 70%;
   margin: 8px 0px 8px 125px;
   border-radius: 4px;
@@ -190,6 +198,7 @@ input[type=submit]{
   padding: 5px;
   color:white;
   background-color:#2b6898;
+
 }
 .forget-password-div{
   width: 60%;
@@ -198,10 +207,13 @@ input[type=submit]{
   justify-content: space-evenly;
 }
 #forget-password{
-  margin: 0px 0px 0px 165px;
+  margin: 0px 0px 0px 28px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 150px;
+  width: 100%;
   color: #92bf20;
+  }
+  #forget-password a{
+    color: #92bf20;
   }
   #a-forget-password{
     color: #92bf20;
@@ -256,7 +268,8 @@ input[type=submit]{
   }
   .dashboard-content{
     border: 1px solid #2b6898;
-    width: 244px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    width: 240px;
     height: 160px;
     background-color: #ffffff;
     color:black;
@@ -266,18 +279,19 @@ input[type=submit]{
     padding: 10px;
   }
   #apply{
-    /* margin-top: -9px; */
-    margin-right: 45px;
+    margin-left: -20px;
+    /* margin-right: 44px; */
     font-size: 22px;
     text-align: center;
     margin-top: 25px;
+    width: 100%;
   }
   #money-li{
-    /* margin-bottom:-50px; */
-    margin-right: 45px;
     font-size: 28px;
     color:black;
     text-align: center;
+    margin-left: -25px;
+    width: 100%;
   }
   /* Ends here */
 
@@ -295,6 +309,8 @@ input[type=submit]{
 /* Apply section */
 body{
   height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 #apply-form-container{
   width: 100%;
@@ -317,7 +333,7 @@ h4, #loc-name, .fa-skating{
   margin-top: -15px;
   margin-left: -15px
 }
-input[type=email], input[type=password], input[type=text], input[type=number],input[type=submit]{
+input[type=email], input[type=password],input[type=text], input[type=number]{
   width: 40%;
   padding: 14px 10px;
   margin: 4px 0px 4px 2px;
@@ -326,9 +342,18 @@ input[type=email], input[type=password], input[type=text], input[type=number],in
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 12px;
+  height: 36px;
+}
+button{
+  width: 40%;
+  /* padding: 14px 10px; */
+  margin-left: 1px;
 }
 #signup{
-  margin-right: 99px
+  margin-right: 99px;
+  font-size: 18px;
+  margin-bottom: -19px;
+  margin-top: -1px;
 }
 .tenor-container{
   display: flex;
@@ -340,6 +365,9 @@ input[type=email], input[type=password], input[type=text], input[type=number],in
 #tenor-name{
   margin-top: 10px
 }
+/* .login-password-recovery{
+  width: 100%;
+} */
 .forget-password-div{
   display: flex;
   justify-content: space-around;
@@ -347,14 +375,14 @@ input[type=email], input[type=password], input[type=text], input[type=number],in
 }
 #forget-password{
   color: #92bf20;
-  margin: 2px 0px 2px 65px;
+  margin: 2px 0px 2px -5px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   width: 250px
   }
 /* Ends here */
 /* Sign-in section */
 .second-div{
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .inner-first-div{
   display: flex;
@@ -372,12 +400,16 @@ input[type=email], input[type=password], input[type=text], input[type=number],in
 }
 .element-container{
   width: 40ch;
-  margin-right: 12px;
+  margin-right: 49px;
   height: 88%;
 }
-input[type=email], input[type=password],input[type=submit], input[type=text]{
+/* input[type=email], input[type=password],input[type=submit], input[type=text]{
   width: 48%;
   height: 36px;
+} */
+
+.login-password-recovery{
+  /* border: 1px solid red; */
 }
 #a-forget-password{
   font-size: 14px;
@@ -394,7 +426,9 @@ input[type=email], input[type=password],input[type=submit], input[type=text]{
   flex-flow: column;
   width: 490px;
   margin-left: 39px;
+  margin-top: 23px;
   }
+  
 /* Ends here */
 /*Dashboard for a loan section  */
 .inner-first-div{
