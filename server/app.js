@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import apiRoute from './routes/router';
 
 
 const app = express();
@@ -13,6 +14,7 @@ app.get('/', (req, res) =>{
     });
 })
 
+app.use('/api/v1', apiRoute);
 app.use('*', (req, res) => {
     res.status(404);
     res.json({
