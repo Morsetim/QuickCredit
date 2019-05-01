@@ -30,7 +30,7 @@ const User = [
         homeAddress: '577 oregun road ikeja',
         workAddress: '67 epic tower anthony',
         status: 'unverified',
-        isAmin: 'true'
+        isAmin: 'false'
     }
 ]
 

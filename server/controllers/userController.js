@@ -70,5 +70,9 @@ export default class userDatabase {
         }
         return res.json({status:400, error: 'unauthorized user'})
         }
-
+        static verified(req, res){
+            const {email, firstName, lastName, password, homeAddress, workAddress} = req.body;
+            
+            
+        }
     }

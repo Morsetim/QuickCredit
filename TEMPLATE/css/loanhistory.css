@@ -49,8 +49,13 @@ body{
     text-decoration: none;
   }
   .ul-container{
+    display: flex;
+    padding: 5px;
+    /* margin:5px; */
     margin-top: 45px;
     margin-right: 45px;
+    width:100%;
+    justify-content: space-evenly;
   }
   ul li{
     list-style-type: none;
