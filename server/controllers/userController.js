@@ -1,6 +1,6 @@
 import userData from '../models/userModel';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import env from 'dotenv';
 
 env.config();
@@ -25,7 +25,6 @@ export default class userDatabase {
         }
         const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: 60 * 60 * 10}); // Expires in 10 hours
         req.token = token;
-
         userData.push({
             id:userId,
             firstName,
@@ -45,4 +44,35 @@ export default class userDatabase {
             });
         return res.status(401).json({status:401, message:'Unauthorized'});
     }
-}
+
+    static signIn(req, res){
+        const {email, password} = req.body;
+        const checkData = userData.find(i=> i.email == email);
+        console.log(checkData, '========');
+        if(checkData){
+            const comparePassword = bcrypt.compareSync(password, checkData.hashedPassword);
+    
+            if(comparePassword){
+                const payload = {
+                    email
+                }
+                const token = jwt.sign(payload, process.env.SECRET_KEY, {
+                    expiresIn: 60 * 60 * 10 // 10 hours
+                  }); 
+                  req.token = token;
+                   res.status(200)
+                    .json({
+                      status: 'Success',
+                      message: 'successfull login',
+                      token
+                 });
+            }               
+        }
+        return res.json({status:400, error: 'unauthorized user'})
+        }
+        static verified(req, res){
+            const {email, firstName, lastName, password, homeAddress, workAddress} = req.body;
+            
+            
+        }
+    }

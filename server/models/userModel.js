@@ -7,6 +7,7 @@ const User = [
         password: 'qwertyuiop',
         homeAddress: '55 kaduna road kd',
         workAddress: '67 epic tower anthony',
+        status: 'verified',
         isAmin: 'false'
     },
     {
@@ -17,6 +18,7 @@ const User = [
         password: 'qwertyuiop',
         homeAddress: '55 songo road ogun state',
         workAddress: '67 epic tower anthony',
+        status: 'verified',
         isAmin: 'false'
     },
     {
@@ -27,7 +29,8 @@ const User = [
         password: 'qwertyuiop',
         homeAddress: '577 oregun road ikeja',
         workAddress: '67 epic tower anthony',
-        isAmin: 'true'
+        status: 'unverified',
+        isAmin: 'false'
     }
 ]
 
