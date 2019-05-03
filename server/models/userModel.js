@@ -1,4 +1,4 @@
-const User = [
+const Users = [
     {
         id: 1,
         firstName: 'Jonathan',
@@ -7,7 +7,7 @@ const User = [
         password: 'qwertyuiop',
         homeAddress: '55 kaduna road kd',
         workAddress: '67 epic tower anthony',
-        status: 'verified',
+        status: 'unverified',
         isAmin: 'false'
     },
     {
@@ -16,9 +16,9 @@ const User = [
         lastName: 'Etim',
         email: 'mauricium.maurice@yahoo.com',
         password: 'qwertyuiop',
-        homeAddress: '55 songo road ogun state',
+        homeAddress: '555 sango road ogun',
         workAddress: '67 epic tower anthony',
-        status: 'verified',
+        status: 'unverified',
         isAmin: 'false'
     },
     {
@@ -34,4 +34,4 @@ const User = [
     }
 ]
 
-export default User
+export default Users

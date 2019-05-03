@@ -70,9 +70,16 @@ export default class userDatabase {
         }
         return res.json({status:400, error: 'unauthorized user'})
         }
+
         static verified(req, res){
-            const {email, firstName, lastName, password, homeAddress, workAddress} = req.body;
-            
-            
+        const finder  = userData.find(i => i.email === req.params.useremail)
+            if(finder.homeAddress && finder.workAddress != ''){
+                 finder.status = 'verified';
+                res.status(201)
+                    .json({
+                        status:201,
+                        finder:finder
+                    })
+            }
         }
-    }
+        }
