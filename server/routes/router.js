@@ -11,5 +11,7 @@ router.route('/auth/signup')
 router.route('/auth/signin')
 .post(userValidator.signIn, authToken, userController.signIn);
 
+router.route('/users/:useremail/verify')
+.patch(userController.verified)
 
 export default router;
