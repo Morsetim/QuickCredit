@@ -2,6 +2,7 @@ import userData from '../models/userModel';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import env from 'dotenv';
+import loans from '../models/loanModel'
 
 env.config();
 
@@ -72,14 +73,28 @@ export default class userDatabase {
         }
 
         static verified(req, res){
-        const finder  = userData.find(i => i.email === req.params.useremail)
-            if(finder.homeAddress && finder.workAddress != ''){
-                 finder.status = 'verified';
+        const userProfile  = userData.find(i => i.email === req.params.useremail)
+            if(userProfile.homeAddress && userProfile.workAddress != ''){
+                 userProfile.status = 'verified';
                 res.status(201)
                     .json({
                         status:201,
-                        finder:finder
+                        userProfile:userProfile
                     })
+            }
+        }
+
+        static allLoans(req, res){
+            if(loans.length != 0){
+                res.status(201)
+                    .json({
+                        status: 201,
+                        data: [
+                            {
+                                loans  
+                            }
+                        ]
+                    });
             }
         }
         }

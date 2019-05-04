@@ -14,4 +14,7 @@ router.route('/auth/signin')
 router.route('/users/:useremail/verify')
 .patch(userController.verified)
 
+router.route('/loans')
+.get(userController.allLoans)
+
 export default router;
