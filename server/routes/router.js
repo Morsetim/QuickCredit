@@ -17,4 +17,7 @@ router.route('/users/:useremail/verify')
 router.route('/loans')
 .get(userController.allLoans)
 
+router.route('/loans/:loanId')
+.get(userController.getOneLoan)
+
 export default router;

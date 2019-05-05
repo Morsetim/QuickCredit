@@ -12,8 +12,8 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:1,
-        user:'morsetim8@gmail.com',
+        id:2,
+        user:'kindness@gmail.com',
         createdOn: '4/24/2019',
         status:'verified',
         repaid:'true',
@@ -24,8 +24,8 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:1,
-        user:'morsetim8@gmail.com',
+        id:33,
+        user:'sandra@gmail.com',
         createdOn: '4/24/2019',
         status:'verified',
         repaid:'false',

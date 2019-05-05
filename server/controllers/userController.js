@@ -2,7 +2,7 @@ import userData from '../models/userModel';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import env from 'dotenv';
-import loans from '../models/loanModel'
+import loansData from '../models/loanModel'
 
 env.config();
 
@@ -85,16 +85,27 @@ export default class userDatabase {
         }
 
         static allLoans(req, res){
-            if(loans.length != 0){
+            if(loansData.length != 0){
                 res.status(201)
                     .json({
                         status: 201,
                         data: [
                             {
-                                loans  
+                                loansData  
                             }
                         ]
                     });
+            }
+        }
+        static getOneLoan(req, res){
+            for(let i=0; i<loansData.length; i++){
+                if(loansData[i].id === parseInt(req.params.loanId)){
+                    return res.status(201)
+                        .json({
+                            status: 201,
+                            message: `loan with id ${req.params.loanId}`
+                        });
+                }
             }
         }
         }
