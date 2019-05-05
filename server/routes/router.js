@@ -16,6 +16,8 @@ router.route('/users/:useremail/verify')
 
 router.route('/loans')
 .get(userController.allLoans)
+router.route('/loans/repaid')
+.get(userController.repaidLoans)
 
 router.route('/loans/:loanId')
 .get(userController.getOneLoan)
