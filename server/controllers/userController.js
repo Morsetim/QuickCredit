@@ -107,5 +107,26 @@ export default class userDatabase {
                         });
                 }
             }
+            res.status(400)
+            .json({
+                status: 400,
+                message: `loan with id ${req.params.loanId} does not exist in your catalogue`
+            });
+        }
+        static repaidLoans(req, res){
+            const repaidLoans = loansData.filter((repaid) =>{
+                return repaid.status == 'Approved' && repaid.repaid == 'true';
+                
+            }) 
+            res.status(201)
+                    .json({ 
+                        status:201, 
+                        data: [
+                            {
+                                repaidLoans:repaidLoans                        
+                            }
+                        ]
+
+                    });
         }
         }
