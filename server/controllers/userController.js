@@ -144,5 +144,22 @@ export default class userDatabase {
                         ]
 
                     });
+      }
+        static repaymentHistory(req, res){
+            for(let i=0; i<loansData.length; i++){
+                if(loansData[i].id === parseInt(req.params.loanId)){
+                     return res.status(201)
+                        .json({
+                            status  : 201,
+                            data  :  {
+                                loanId : loansData[i].id,
+                                createdOn : loansData[i].createdOn,
+                                monthlyInstallment : loansData[i].paymentInstallment,
+                                amount : loansData[i].amount
+                            }
+                        });
+                }
+            }
         }
+
         }
