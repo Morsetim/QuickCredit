@@ -144,7 +144,7 @@ export default class userDatabase {
                         ]
 
                     });
-        }
+      }
         static repaymentHistory(req, res){
             for(let i=0; i<loansData.length; i++){
                 if(loansData[i].id === parseInt(req.params.loanId)){
