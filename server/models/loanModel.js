@@ -25,6 +25,18 @@ const loans = [
     },
     {
         id:3,
+        user:'kindness@gmail.com',
+        createdOn: '4/24/2019',
+        status:'Pending',
+        repaid:'true',
+        tenor: '3 month',  // use parseInt
+        amount: '15,000:00',
+        paymentInstallment: '2,000:00',
+        balance: '5,000:00',
+        interest: '5%' // use parseFloat
+    },
+    {
+        id:4,
         user:'sandra@gmail.com',
         createdOn: '4/24/2019',
         status:'Approved',
@@ -36,7 +48,7 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:4,
+        id:5,
         user:'metim8@gmail.com',
         createdOn: '4/24/2019',
         status:'Approved',
