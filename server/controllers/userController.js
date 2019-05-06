@@ -129,20 +129,37 @@ export default class userDatabase {
 
                     });
         }
+        static unRepaidLoans(req, res){
+            const repaidLoans = loansData.filter((repaid) =>{
+                return repaid.status == 'Approved' && repaid.repaid == 'false';
+                
+            }) 
+            res.status(201)
+                    .json({ 
+                        status:201, 
+                        data: [
+                            {
+                                repaidLoans:repaidLoans                        
+                            }
+                        ]
+
+                    });
+        }
         static repaymentHistory(req, res){
             for(let i=0; i<loansData.length; i++){
                 if(loansData[i].id === parseInt(req.params.loanId)){
-                    return res.status(201)
+                     return res.status(201)
                         .json({
                             status  : 201,
                             data  :  {
-                                loanId : loansData.id,
-                                createdOn : loansData.createdOn,
-                                monthlyInstallment : loansData.paymentInstallment,
-                                amount : loansData.amount
+                                loanId : loansData[i].id,
+                                createdOn : loansData[i].createdOn,
+                                monthlyInstallment : loansData[i].paymentInstallment,
+                                amount : loansData[i].amount
                             }
                         });
                 }
             }
         }
+
         }
