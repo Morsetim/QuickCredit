@@ -18,6 +18,8 @@ router.route('/loans')
 .get(userController.allLoans)
 router.route('/loans/repaid')
 .get(userController.repaidLoans)
+router.route('/loans/unrepaid')
+.get(userController.unRepaidLoans)
 
 router.route('/loans/:loanId')
 .get(userController.getOneLoan)

@@ -129,4 +129,20 @@ export default class userDatabase {
 
                     });
         }
+        static unRepaidLoans(req, res){
+            const repaidLoans = loansData.filter((repaid) =>{
+                return repaid.status == 'Approved' && repaid.repaid == 'false';
+                
+            }) 
+            res.status(201)
+                    .json({ 
+                        status:201, 
+                        data: [
+                            {
+                                repaidLoans:repaidLoans                        
+                            }
+                        ]
+
+                    });
+        }
         }
