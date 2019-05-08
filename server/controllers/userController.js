@@ -194,5 +194,26 @@ export default class userDatabase {
                     ]
                 })
         }
+        static updateApproveOrReject(req, res){
+            const {status} = req.body;
+            for(let i = 0; i<loansData.length; i++){
+                if(loansData[i].loanId === parseInt(req.params.loanId)){
+                    loansData[i].status = status || loansData.status;
+                    // console.log(loanData.status);
+                    return res.status(201)
+                        .json({
+                            status:201,
+                            data : {
+                                loanId : loansData[i].loanId,
+                                loanAmount : loansData[i].amount,
+                                tenor : loansData.tenor,
+                                status : loansData[i].status,
+                                monthlyInstallment : loansData[i].paymentInstallment,
+                                interest : loansData[i].interest
+                            } 
+                        })
+            }
+        }
     }
+}
         
