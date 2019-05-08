@@ -2,6 +2,7 @@ import express from 'express';
 import userController from '../controllers/userController';
 import userValidator from '../middlewares/uservalidation'
 import authToken from '../middlewares/tokenAuthentication';
+import loanValidator from '../middlewares/loanValidation';
 
 const router = express.Router();
 
@@ -26,6 +27,8 @@ router.route('/loans/:loanId')
 router.route('/loans/:loanId/repayment')
 .get(userController.repaymentHistory)
 
+router.route('/loans')
+.post(loanValidator.applyLoan, userController.apply)
 
 
 

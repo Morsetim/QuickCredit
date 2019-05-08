@@ -1,7 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import apiRoute from './routes/router';
+import debug from 'debug';
 
+
+// const Debug = debug('checker');
 
 const app = express();
 const port = parseInt((process.env.PORT), 10) || 4000
