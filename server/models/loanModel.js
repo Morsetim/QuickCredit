@@ -1,6 +1,6 @@
 const loans = [
     {
-        id:1,
+        loanId:1,
         user:'morsetim8@gmail.com',
         createdOn: '4/24/2019',
         status:'Approved',
@@ -12,7 +12,7 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:2,
+        loanId:2,
         user:'kindness@gmail.com',
         createdOn: '4/24/2019',
         status:'Approved',
@@ -24,7 +24,7 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:3,
+        loanId:3,
         user:'kindness@gmail.com',
         createdOn: '4/24/2019',
         status:'Pending',
@@ -36,7 +36,7 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:4,
+        loanId:4,
         user:'sandra@gmail.com',
         createdOn: '4/24/2019',
         status:'Approved',
@@ -48,7 +48,7 @@ const loans = [
         interest: '5%' // use parseFloat
     },
     {
-        id:5,
+        loanId:5,
         user:'metim8@gmail.com',
         createdOn: '4/24/2019',
         status:'Approved',

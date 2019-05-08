@@ -162,4 +162,37 @@ export default class userDatabase {
             }
         }
 
+        static apply(req, res){
+            const newId = loansData[loansData.length - 1].loanId + 1;
+            const {firstName, lastName, email, tenor, amount} = req.body;
+            const interest = amount * (5/100);
+            const monthlyInstallment =+ amount + interest;
+            const paymentInstallment = monthlyInstallment / tenor;
+            const balance = amount - paymentInstallment
+            const status = 'Pending';
+            
+            
+            loansData.push({
+                loanId:newId,
+                firstName,
+                lastName,
+                email,
+                tenor,
+                amount:parseFloat(amount),
+                paymentInstallment,
+                status,
+                balance,
+                interest
+            });
+            res.status(201)
+                .json({
+                    status : 201,
+                    data : [
+                        {
+                            loansData
+                        }
+                    ]
+                })
         }
+    }
+        
