@@ -13,19 +13,20 @@ router.route('/auth/signin')
 .post(userValidator.signIn, authToken, userController.signIn);
 
 router.route('/users/:useremail/verify')
-.patch(userController.verified)
+.patch(userController.verified);
 
 router.route('/loans')
 .get(userController.allLoans)
 router.route('/loans/repaid')
 .get(userController.repaidLoans)
 router.route('/loans/unrepaid')
-.get(userController.unRepaidLoans)
+.get(userController.unRepaidLoans);
 
 router.route('/loans/:loanId')
 .get(userController.getOneLoan)
+.patch(userController.updateApproveOrReject)
 router.route('/loans/:loanId/repayment')
-.get(userController.repaymentHistory)
+.get(userController.repaymentHistory);
 
 router.route('/loans')
 .post(loanValidator.applyLoan, userController.apply)

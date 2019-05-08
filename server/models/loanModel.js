@@ -9,7 +9,7 @@ const loans = [
         amount: '15,000:00',
         paymentInstallment: '2,000:00',
         balance: '5,000:00',
-        interest: '5%' // use parseFloat
+        interest: 5 // use parseFloat
     },
     {
         loanId:2,
@@ -21,7 +21,7 @@ const loans = [
         amount: '15,000:00',
         paymentInstallment: '2,000:00',
         balance: '5,000:00',
-        interest: '5%' // use parseFloat
+        interest: 5 // use parseFloat
     },
     {
         loanId:3,
@@ -33,7 +33,7 @@ const loans = [
         amount: '15,000:00',
         paymentInstallment: '2,000:00',
         balance: '5,000:00',
-        interest: '5%' // use parseFloat
+        interest: 5 // use parseFloat
     },
     {
         loanId:4,
@@ -45,7 +45,7 @@ const loans = [
         amount: '15,000:00',
         paymentInstallment: '2,000:00',
         balance: '5,000:00',
-        interest: '5%' // use parseFloat
+        interest: 5 // use parseFloat
     },
     {
         loanId:5,
@@ -57,7 +57,7 @@ const loans = [
         amount: '15,000:00',
         paymentInstallment: '2,000:00',
         balance: '5,000:00',
-        interest: '5%' // use parseFloat
+        interest: 5 // use parseFloat
     }
 ]
 
