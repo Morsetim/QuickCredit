@@ -35,7 +35,7 @@
     "mocha": "^5.2.0",
     "nodemon": "^1.18.7",
     "nyc": "^13.1.0",
-    "supertest": "^3.3.0",
+    "supertest": "^3.4.2",
     "validator": "^10.9.0"
   }
 }
