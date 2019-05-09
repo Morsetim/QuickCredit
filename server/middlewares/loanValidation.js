@@ -35,6 +35,9 @@ class loanValidator{
             fieldsErrors.tenor = 'Please input numbers';
         }
     }
+    if(!validator.isLength(amount, {min:4, max:6})){
+        fieldsErrors.amount = 'We only grant a loans of 1000 above and 500,000 below';
+}
     if(Object.keys(fieldsErrors).length != 0){
         return res.status(400).json({fieldsErrors});
     }

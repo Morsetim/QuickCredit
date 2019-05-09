@@ -2,8 +2,8 @@ import userData from '../models/userModel';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import env from 'dotenv';
-import loansData from '../models/loanModel'
-
+import loansData from '../models/loanModel';
+import loanRepayment from '../models/loanRepaymentModel';
 env.config();
 
 export default class userDatabase {
@@ -171,7 +171,6 @@ export default class userDatabase {
             const balance = amount - paymentInstallment
             const status = 'Pending';
             
-            
             loansData.push({
                 loanId:newId,
                 firstName,
@@ -199,7 +198,6 @@ export default class userDatabase {
             for(let i = 0; i<loansData.length; i++){
                 if(loansData[i].loanId === parseInt(req.params.loanId)){
                     loansData[i].status = status || loansData.status;
-                    // console.log(loanData.status);
                     return res.status(201)
                         .json({
                             status:201,
@@ -213,7 +211,39 @@ export default class userDatabase {
                             } 
                         })
             }
+            res.status(422)
+                .json({
+                    status : 422,
+                    message: `loan with id ${req.params.loanId} does not exist in your catalogue`
+                })
         }
     }
-}
-        
+        static createRepaymentRecord(req, res){
+            const newId = loanRepayment[loanRepayment.length - 1].id + 1;
+            const {loanId, createdOn, amount, monthlyInstallment, paidAmount, balance} = req.body;
+                loanRepayment.find(i => i.loanId === req.params.loanId);
+                if(loanRepayment){
+                    res.status(422)
+                        .json({
+                            status : 422,
+                            message: `loan with id ${req.params.loanId} already exist in your catalogue`
+                        });
+                }
+
+            loanRepayment.push({id:newId,
+                                 loanId:parseInt(loanId),
+                                 createdOn,
+                                 amount:parseInt(amount),
+                                 monthlyInstallment:parseInt(monthlyInstallment),
+                                 paidAmount:parseInt(paidAmount), 
+                                 balance:parseInt(balance)
+                                });
+            res.status(201)
+                .json({
+                    status : 201,
+                    data : {
+                        loanRepayment
+                    }
+                });
+        }
+    }
