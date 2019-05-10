@@ -14,9 +14,9 @@ export default class userDatabase {
 
         for(let i = 0; i<userData.length; i++){
             if(userData[i].email === email){
-                res.status(409).json({
+                return res.status(409).json({
                     status: 409,
-                    message: 'User already exists'
+                    message: 'User already exist'
                 })
             }
         }
@@ -24,6 +24,7 @@ export default class userDatabase {
             id:userId,
             email
         }
+        if(payload){
         const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: 60 * 60 * 10}); // Expires in 10 hours
         req.token = token;
         userData.push({
@@ -35,14 +36,16 @@ export default class userDatabase {
             homeAddress,
             workAddress
         });
-        res.status(201)
+        return  res.status(201)
             .json({
                 status: 201,
+                message: 'Successfully created QuickCredit account',          
                 data: [{
                     token:token,
                     userData:userData[userData.length - 1]
                 }]
             });
+        }
         return res.status(401).json({status:401, message:'Unauthorized'});
     }
 
@@ -61,7 +64,7 @@ export default class userDatabase {
                     expiresIn: 60 * 60 * 10 // 10 hours
                   }); 
                   req.token = token;
-                   res.status(200)
+                  return  res.status(200)
                     .json({
                       status: 'Success',
                       message: 'successfull login',
@@ -69,14 +72,14 @@ export default class userDatabase {
                  });
             }               
         }
-        return res.json({status:400, error: 'unauthorized user'})
+        return res.json({status:422, error: 'unauthorized user'})
         }
 
         static verified(req, res){
         const userProfile  = userData.find(i => i.email === req.params.useremail)
             if(userProfile.homeAddress && userProfile.workAddress != ''){
                  userProfile.status = 'verified';
-                res.status(201)
+                 return res.status(201)
                     .json({
                         status:201,
                         userProfile:userProfile
@@ -107,9 +110,9 @@ export default class userDatabase {
                         });
                 }
             }
-            res.status(400)
+            return res.status(422)
             .json({
-                status: 400,
+                status: 422,
                 message: `loan with id ${req.params.loanId} does not exist in your catalogue`
             });
         }
@@ -118,7 +121,7 @@ export default class userDatabase {
                 return repaid.status == 'Approved' && repaid.repaid == 'true';
                 
             }) 
-            res.status(201)
+            return res.status(201)
                     .json({ 
                         status:201, 
                         data: [
@@ -134,7 +137,7 @@ export default class userDatabase {
                 return repaid.status == 'Approved' && repaid.repaid == 'false';
                 
             }) 
-            res.status(201)
+            return res.status(201)
                     .json({ 
                         status:201, 
                         data: [
@@ -159,6 +162,11 @@ export default class userDatabase {
                             }
                         });
                 }
+                return res.status(422)
+                    .json({
+                status: 422,
+                message: `loan with repayment id ${req.params.loanId} does not exist in your catalogue`
+            });
             }
         }
 
@@ -183,7 +191,7 @@ export default class userDatabase {
                 balance,
                 interest
             });
-            res.status(201)
+            return res.status(201)
                 .json({
                     status : 201,
                     data : [
@@ -211,7 +219,7 @@ export default class userDatabase {
                             } 
                         })
             }
-            res.status(422)
+            return res.status(422)
                 .json({
                     status : 422,
                     message: `loan with id ${req.params.loanId} does not exist in your catalogue`
@@ -223,7 +231,7 @@ export default class userDatabase {
             const {loanId, createdOn, amount, monthlyInstallment, paidAmount, balance} = req.body;
                 loanRepayment.find(i => i.loanId === req.params.loanId);
                 if(loanRepayment){
-                    res.status(422)
+                    return res.status(422)
                         .json({
                             status : 422,
                             message: `loan with id ${req.params.loanId} already exist in your catalogue`
@@ -238,7 +246,7 @@ export default class userDatabase {
                                  paidAmount:parseInt(paidAmount), 
                                  balance:parseInt(balance)
                                 });
-            res.status(201)
+            return res.status(201)
                 .json({
                     status : 201,
                     data : {
