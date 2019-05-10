@@ -8,13 +8,37 @@ class userValidator{
         const catchErrors = {};
 
         if(firstName == undefined || lastName == undefined || email == undefined || password == undefined ||homeAddress == undefined || workAddress === undefined){
-            return res.status(400).json({status:'Failed', message:'All some fields are empty'});
+            return res.status(422).json({status:'Failed', message:'All or some fields are empty'});
         }
         if(!validator.isLength(firstName, {min:2})){
             catchErrors.firstName = 'First name length must be at least two characters long';
         }
         if(firstName.search(/^[a-zA-Z]*$/) === -1){
             catchErrors.firstName = 'Firstname should only be Alphabets';
+        }
+        if(homeAddress.search(/^([a-zA-Z0-9 _-]+)$/) === -1){
+            catchErrors.homeAddress = 'homeAddress should only be Alphabets';
+        }
+        // if(!validator.isAlphanumeric(homeAddress)){
+        //     catchErrors.homeAddress = 'Field should be alphabets and numbers';
+        // }    
+        if(validator.isEmpty(homeAddress)){
+            catchErrors.homeAddress = 'Field cannot be Empty';
+            }
+        if(!validator.isLength(homeAddress, {min:10, max:40})){
+            catchErrors.homeAddress = 'homeAddress length must be at least ten characters long';
+        }
+        if(workAddress.search(/^([a-zA-Z0-9 _-]+)$/) === -1){
+            catchErrors.workAddress = 'workAddress should only be Alphabets';
+        }
+        // if(workAddress.strip().search(/^\s+|\s+$|\s+(?=\s)/g, "")){
+        //     catchErrors.workAddress = 'workAddress should only be Alphabets';
+        // }
+        if(validator.isEmpty(workAddress)){
+            catchErrors.workAddress = 'Field cannot be Empty';
+            }
+        if(!validator.isLength(workAddress, {min:10, max:40})){
+            catchErrors.workAddress = 'workAddress length must be at least ten characters long';
         }
         if(!validator.isLength(lastName, {min:2})){
             catchErrors.lastName = 'Lastname length must be at least two characters long';
@@ -27,7 +51,7 @@ class userValidator{
         }
         if(!validator.isEmpty(password)){
             if(!validator.isLength(password, {min:6})){
-                catchErrors.isLength = 'Password length must be at least six characters long';
+                catchErrors.password = 'Password length must be at least six characters long';
             }
         }else{
             catchErrors.password = 'Field cannot be Empty';

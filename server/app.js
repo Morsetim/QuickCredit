@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) =>{
     res.send({
-        message: "Welcome to QuickCredit App"
+        message: "Welcome to QuickCredit Loan App"
     });
 })
 
