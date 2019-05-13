@@ -24,16 +24,17 @@ class loanValidator{
     if(!validator.isEmail(email)){
         fieldsErrors.email = 'Field must be an Email format';
     }
-    if(!validator.isEmpty(tenor)){
-        if(lastName.search(/^[0-9]*$/) === -1){
-            fieldsErrors.lastName = 'Please input numbers';
+    if(validator.isEmpty(tenor)){
+        if(tenor.search(/^[0-9]*$/) === -1){
+            fieldsErrors.tenor = 'Please input number';
         }
         fieldsErrors.tenor = 'Tenor field cannot be empty';
     }
-    if(!validator.isEmpty(amount)){
-        if(lastName.search(/^[0-9]*$/) === -1){
-            fieldsErrors.tenor = 'Please input numbers';
+    if(validator.isEmpty(amount)){
+        if(amount.search(/^[0-9]*$/) === -1){
+            fieldsErrors.amount = 'Please input numbers';
         }
+        fieldsErrors.amount = 'Amount field cannot be empty';
     }
     if(!validator.isLength(amount, {min:4, max:6})){
         fieldsErrors.amount = 'We only grant a loans of 1000 above and 500,000 below';
