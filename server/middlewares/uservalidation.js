@@ -17,11 +17,8 @@ class userValidator{
             catchErrors.firstName = 'Firstname should only be Alphabets';
         }
         if(homeAddress.search(/^([a-zA-Z0-9 _-]+)$/) === -1){
-            catchErrors.homeAddress = 'homeAddress should only be Alphabets';
-        }
-        // if(!validator.isAlphanumeric(homeAddress)){
-        //     catchErrors.homeAddress = 'Field should be alphabets and numbers';
-        // }    
+            catchErrors.homeAddress = 'Field should be alphabets and numbers';
+        }   
         if(validator.isEmpty(homeAddress)){
             catchErrors.homeAddress = 'Field cannot be Empty';
             }
@@ -29,11 +26,8 @@ class userValidator{
             catchErrors.homeAddress = 'homeAddress length must be at least ten characters long';
         }
         if(workAddress.search(/^([a-zA-Z0-9 _-]+)$/) === -1){
-            catchErrors.workAddress = 'workAddress should only be Alphabets';
+            catchErrors.workAddress = 'Field should be alphabets and numbers';
         }
-        // if(workAddress.strip().search(/^\s+|\s+$|\s+(?=\s)/g, "")){
-        //     catchErrors.workAddress = 'workAddress should only be Alphabets';
-        // }
         if(validator.isEmpty(workAddress)){
             catchErrors.workAddress = 'Field cannot be Empty';
             }
@@ -48,6 +42,9 @@ class userValidator{
         }
         if(!validator.isEmail(email)){
             catchErrors.email = 'Field must be an Email format';
+        }
+        if(!validator.isAlpha(password)){
+            catchErrors.password = 'Fields must alphabets';
         }
         if(!validator.isEmpty(password)){
             if(!validator.isLength(password, {min:6})){
@@ -64,25 +61,28 @@ class userValidator{
 
     signIn(req, res, next){
         const {email, password} = req.body;
-        signErrors = {};
+        let signErrors = {};
         if(email == undefined || password == undefined){
-        return res.status(400).json({status:'Failed', message:'All some fields are empty'}); 
+        return res.status(422).json({status:'Failed', message:'All or some fields are empty'}); 
         }
         if(!validator.isEmail(email)){
             signErrors.email = 'Field must be an Email format';
         }
+        if(!validator.isAlpha(password)){
+            signErrors.password = 'Fields must alphabets';
+        }
         if(!validator.isEmpty(password)){
             if(!validator.isLength(password, {min:6})){
-                signErrors.isLength = 'Password length must be at least six characters long';
+                signErrors.password = 'Password length must be at least six characters long';
             }
         }else{
             signErrors.password = 'Field cannot be Empty';
         }
         if(Object.keys(signErrors).length != 0){
-            return res.status(400).json({signErrors});
+            return res.status(422).json({signErrors});
         }
         next();
     }
 }
 
-export default new userValidator();
+export default new userValidator();         

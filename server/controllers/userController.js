@@ -52,7 +52,6 @@ export default class userDatabase {
     static signIn(req, res){
         const {email, password} = req.body;
         const checkData = userData.find(i=> i.email == email);
-        console.log(checkData, '========');
         if(checkData){
             const comparePassword = bcrypt.compareSync(password, checkData.hashedPassword);
     
@@ -72,19 +71,27 @@ export default class userDatabase {
                  });
             }               
         }
-        return res.json({status:422, error: 'unauthorized user'})
+        return res.json({status:422, error: 'unauthorized user'});
         }
 
         static verified(req, res){
-        const userProfile  = userData.find(i => i.email === req.params.useremail)
-            if(userProfile.homeAddress && userProfile.workAddress != ''){
-                 userProfile.status = 'verified';
-                 return res.status(201)
-                    .json({
-                        status:201,
-                        userProfile:userProfile
-                    })
-            }
+        const userProfile  = userData.find(user => user.email === req.params.useremail)
+        if(userProfile === undefined){
+            return res.status(422)
+            .json({
+                status:422,
+                message:'Invalid email'
+            });
+        }
+        
+        if(userProfile && userProfile.workAddress != ''){
+            userProfile.status = req.body.status;
+            return res.status(201)
+               .json({
+                   status:201,
+                   userProfile:userProfile
+               });
+       }
         }
 
         static allLoans(req, res){
@@ -99,6 +106,11 @@ export default class userDatabase {
                         ]
                     });
             }
+            res.status(422)
+                .json({
+                    status : 422,
+                    message : 'There are no datas in your database' 
+                })
         }
         static getOneLoan(req, res){
             for(let i=0; i<loansData.length; i++){
@@ -189,17 +201,17 @@ export default class userDatabase {
                 paymentInstallment,
                 status,
                 balance,
-                interest
+                interest 
             });
             return res.status(201)
                 .json({
                     status : 201,
                     data : [
                         {
-                            loansData
+                            loansData :loansData[loansData.length -1]
                         }
                     ]
-                })
+                });
         }
         static updateApproveOrReject(req, res){
             const {status} = req.body;
@@ -217,7 +229,7 @@ export default class userDatabase {
                                 monthlyInstallment : loansData[i].paymentInstallment,
                                 interest : loansData[i].interest
                             } 
-                        })
+                        });
             }
             return res.status(422)
                 .json({
