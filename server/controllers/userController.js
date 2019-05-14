@@ -6,7 +6,7 @@ import loansData from '../models/loanModel';
 import loanRepayment from '../models/loanRepaymentModel';
 env.config();
 
-export default class userDatabase {
+export default class UserController {
     static signUp(req, res){
         const userId = userData[userData.length - 1].id + 1;
         const {firstName,lastName, email, password, homeAddress, workAddress} = req.body;
