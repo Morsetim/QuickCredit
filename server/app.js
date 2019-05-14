@@ -1,7 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import apiRoute from './routes/router';
+import debug from 'debug';
 
+
+// const Debug = debug('checker');
 
 const app = express();
 const port = parseInt((process.env.PORT), 10) || 4000
@@ -10,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) =>{
     res.send({
-        message: "Welcome to QuickCredit App"
+        message: "Welcome to QuickCredit Loan App"
     });
 })
 
