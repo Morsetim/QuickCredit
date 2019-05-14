@@ -253,6 +253,9 @@ button{
     padding: 10px 6px;
     margin-left: 19px
   }
+  .tenor-option{
+    padding: 50px;
+  }
   /* Ends here */
   /* dashboard container section */
   .dash-board-container{
@@ -361,6 +364,7 @@ button{
   font-size: 15px;
   color: #2c3642;
 }
+
 #tenor-name{
   margin-top: 10px
 }

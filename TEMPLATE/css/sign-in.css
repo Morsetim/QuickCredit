@@ -231,6 +231,7 @@ body{
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
   padding :0px;
   margin-top: 10px;
+  
 }
 .form-container{
 display: flex;
@@ -295,7 +296,7 @@ button{
   /* Ends here */
   @media screen and (max-width: 680px){
     .element-container{
-      background-color:greenyellow;
+      background-color:#2b6898;
       display: flex;
       margin: auto;
       width: 500px;
@@ -388,7 +389,7 @@ button{
   
 
   .element-container-sign-in{
-    background-color:#f4f4f4;
+    background-color: #fff;
     display: flex;
     margin: auto;
     width: 440px;
@@ -455,10 +456,10 @@ button{
     margin: 0px 0px 0px 165px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 170px;
-    color: #92bf20;
+    color: #2b6898;
     }
     #a-forget-password{
-      color: #92bf20;
+      color: #2b6898;
       text-decoration: none
     }
     #create-account{
@@ -467,7 +468,7 @@ button{
       /* padding-left: 2px; */
     }
     a#create-account{
-      color: #92bf20;
+      color: #2b6898;
       text-decoration: none;
       /* margin-left: 1px; */
     }
@@ -619,7 +620,7 @@ button{
     width: 38%
   }
   #forget-password{
-    color: #92bf20;
+    color: #2b6898;
     margin: 2px 0px 2px 65px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 250px

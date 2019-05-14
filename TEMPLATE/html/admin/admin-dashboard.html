@@ -4,52 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../css/admindashboard.css">
+  <link rel="stylesheet" href="../../css/index.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <title>QuickCredit|Dashboard</title>
+  <title>QuickCredit</title>
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="../../css/admindashboard.css">
+ <link href='https://fonts.googleapis.com/css?family=Anonymous Pro' rel='stylesheet'>
+ <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'> 
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ <title>QuickCredit</title>
 </head>
 <body>
-        <div class="first-div">
-                <!-- <div class="inner-first-div" id="message-info"><i class="fas fa-pen"></i>Signed in as: jonathanwilliams</div> -->
-              <div class="inner-first-div" id="message-info"></i><a href="signin.html">Sign out</a></div>
-              </div>
-              <div class="second-div">
-                <div class="site-title">
-                  <h1 class="site-name" id="h1-id"><i class="fas fa-skating"></i>QuickCredit</h1>
-                  <p id="site-name">your sure loan</p>
-                </div>
-                <div>
-                  <ul class="ul-container">
-                    <li><a href ="" class="ul-list">Home</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="page-container">
-              <div class="dasboard-side-bar">
-                <ul class="ul-sidebar-list">
-                  <li class="sidebar-list"><a href="all-loans.html">All loans</a></li>
-                  <li class="sidebar-list"><a href="approve-reject.html">Approve/Reject</a></li>
-                  <li class="sidebar-list"><a href="repaid.html">Repaid</a></li>
-                  <li class="sidebar-list"><a href="repayment-record.html">Repayment Record</a></li>
-                  <li class="sidebar-list"><a href="unrepaid.html">Unrepaid</a></li>
-                  <li class="sidebar-list"><a href="verified.html">Verified</a></li>
-                </ul>
-              </div>
-              <div class="dash-board-container">
-                  <a href="verified.html"><ul class="dashboard-content">
-                      <li id="apply">Verify</li>
-                      <li id="money-li">0</li>
-                  </ul></a>
-                  <a href="loanhistory.html"><ul class="dashboard-content">
-                      <li id="apply">Loan History</li>
-                      <li id="money-li">0</li>
-                  </ul></a>
-                  <a href="approve-reject.html"><ul class="dashboard-content">
-                    <li id="apply">Approve/Reject</li>
-                    <li id="money-li">0</li>
-                </ul></a>
-              </div>
-              </div>
-      <div class="footer-div">copyright © 2019. QuickCredit @ Andela.com</div><div class="footer-div">copyright © 2019. QuickCredit @ Andela.com</div> 
+  <div class="main-container1">
+  
+ <div class="dasboard-side-bar">
+   <div class="ul-div">
+  <ul class="ul-sidebar-list">
+    <li ><a href="admin-dashboard.html" id="all-loans" class="sidebar-list">All loans</a></li>
+    <li ><a href="approve-reject.html" class="sidebar-list">Approve/Reject</a></li>
+    <li class="sidebar-list"><a href="repaid.html" class="sidebar-list">Repaid</a></li>
+    <li ><a href="repayment-record.html"class="sidebar-list" >Repayment Record</a></li>
+    <li ><a href="unrepaid.html" class="sidebar-list">Unrepaid</a></li>
+    <li ><a href="verified.html" class="sidebar-list">Verified</a></li>
+  </ul>
+  <ul>
+      <li ><a href="../client/signin.html" class="sidebar-list">Log out</a></li>
+  </ul>
+  </div>
+</div>
+<div class="loan-container">
+  <h2 id="h2-text"> All Loan Applications</h2>
+<a href="a_specific.html"><table class="loan-history-table">
+        <tr>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Tenor</th>
+          <th>Amount</th>
+          <th>PaymentInstallment</th>
+          <th>Verified</th>
+          <th>Approve/Reject</th>
+        </tr>   
+        <tr>
+            <td>jonathanwilliams@yahoo.com</td>
+            <td>4/08/2019</td>
+            <td>6 month</td>
+            <td>&#8358;55,000</td>
+            <td>&#8358;11, 200</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>jennylewis@gmail.com</td>
+            <td>14/11/2017</td>
+            <td>3 month</td>
+            <td>&#8358;17,000</td>
+            <td>&#8358;4,500</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>elenaparkman@hotmail.com</td>
+            <td>1/02/2014</td>
+            <td>6 month</td>
+            <td>&#8358;6,000</td>
+            <td>&#8358;700</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>tigerwoods@hotmail.com</td>
+            <td>10/02/2014</td>
+            <td>9 month</td>
+            <td>&#8358;100,000</td>
+            <td>&#8358;27,00</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+          </tr>
+        </a></table>
+</div>
+</div>
+<div class="footer-div">Copyright © 2019. QuickCredit</div>
 </body>
+</html>
+
+
 </html>
