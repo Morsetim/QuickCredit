@@ -139,7 +139,6 @@ h1{
   height: 470px;
   flex-flow: column;
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  /* margin-top: 5px; */
   padding :0px;
   margin-top: 110px;
 }
