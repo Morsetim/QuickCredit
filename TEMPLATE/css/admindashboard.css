@@ -270,7 +270,15 @@ text-decoration: none;
         margin-top: -150px; 
         flex-flow: column;
         margin-left: 100px;
-      } 
+      }
+      #loan-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -150px; 
+        flex-flow: column;
+        margin-left: 250px;
+      }
       .loan-container a{
         list-style-type: none;
         text-decoration: none;
@@ -298,7 +306,7 @@ text-decoration: none;
     }
     .footer-div{
         height: 60px;
-        background-color: black;
+        background-color:white;
         color: #f4f4f4;
         position: fixed;
         bottom: 0;
@@ -330,6 +338,32 @@ width: 430px;
 margin-left: 39px;
 margin-top: -30px
 }
+      /* Loan repayment history section */
+      .loan-container1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -50px; 
+        flex-flow: column;
+
+      }
+      td{
+          text-align: center;
+          padding: 12px;
+      }
+      th{
+        /* width: 40%; */
+        text-align: center;
+    }
+    td, th {
+      border-bottom: 1px solid #2c3642;
+    }
+    input[type="checkbox"]{
+        background-color: #fff;
+        color: green;
+        font-size: 22px;
+    }
+      /* Ends here */
 
 input[type=email], input[type=password], [type=text], input[type=number]{
   width: 70%;

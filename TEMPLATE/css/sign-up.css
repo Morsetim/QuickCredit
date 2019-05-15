@@ -301,7 +301,7 @@
     /* Ends here */
     @media screen and (max-width: 680px){
       .element-container{
-        background-color:greenyellow;
+        background-color:#fff;
         display: flex;
         margin: auto;
         width: 500px;
