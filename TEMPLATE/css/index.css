@@ -58,6 +58,46 @@ body{
     margin: 0;
     padding: 0;
   }
+  /* dashboard container section */
+  .dash-board-container{
+    display: flex;
+    margin-top: 290px;
+    justify-content: center;
+    align-items: center;  
+  }
+  .dash-board-container a{
+    text-decoration: none;
+    color: #c2cb42;
+  }
+  .dashboard-content{
+    border: 1px solid #2b6898;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    width: 240px;
+    height: 160px;
+    background-color: #ffffff;
+    color:black;
+  }
+  ul li{
+    list-style-type: none;
+    padding: 10px;
+  }
+  #apply{
+    margin-left: -20px;
+    /* margin-right: 44px; */
+    font-size: 22px;
+    text-align: center;
+    margin-top: 25px;
+    width: 100%;
+  }
+  #money-li{
+    font-size: 28px;
+    color:black;
+    text-align: center;
+    margin-left: -25px;
+    width: 100%;
+  }
+  /* Ends here */
+
   /* font awesome section */
 .fa-skating{
     color: #2b6898;
@@ -155,8 +195,15 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 200px;
-        
+        margin-top: 200px; 
+      }
+      .loan-container2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -90px; 
+        margin-left: -10px;
+        flex-flow: column;
       }
       .loan-history-table{
           width: 70%;
@@ -352,5 +399,31 @@ body{
       font-size: 18px;
   }
     /* Ends Here */
+    /*Dashboard for a loan section  */
+.inner-first-div{
+  width: 44%;
+}
+.dash-board-container{
+ display: flex;
+ margin-left: 61px;
+}
+.dashboard-content{
+  width: 70%;
+  text-align: center;
+}
+#apply{
+  margin-top: 38px;
+
+  font-size: 14px;
+  text-align: center;
+}
+#money-li{
+  /* width: 80%; */
+  text-align: center;
+  font-size: 18px;
+  color:black;
+}
+/*Ends here  */
+
   }
   

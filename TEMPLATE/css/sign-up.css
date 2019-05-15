@@ -146,6 +146,13 @@
           margin-top: 200px;
           
         }
+        #all-loan-table{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 550px;
+          
+        }
         .loan-history-table{
             width: 70%;
             height: 70px;
