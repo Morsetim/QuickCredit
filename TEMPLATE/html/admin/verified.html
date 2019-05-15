@@ -4,66 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../css/admin.css">
+  <link rel="stylesheet" href="../../css/index.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <title>QuickCredit|LoanHistory</title>
+  <title>QuickCredit</title>
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="../../css/admindashboard.css">
+ <link href='https://fonts.googleapis.com/css?family=Anonymous Pro' rel='stylesheet'>
+ <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'> 
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ <title>QuickCredit|Admin-Dashboard</title>
 </head>
 <body>
-        <div class="first-div">
-          <div class="first-div">
-            <div class="inner-first-div" id="message-info"><i class="fas fa-pen"></i>Signed in as: jonathanwilliams</div>
-          </div>
-                <div class="inner-first-div" id="sign-div">Sign In / Sign Up</div>
-              </div>
-              <div class="second-div">
-                <div class="site-title">
-                  <h1 class="site-name"id="h1-id"><i class="fas fa-skating"></i>QuickCredit</h1>
-                  <p id="site-name">your sure loan</p>
-                </div>
-                <div>
-                  <ul class="ul-container">
-                    <li><a href ="dashboard.html" class="ul-list">Home</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="loan-container">
-                <table class="loan-history-table">
-                        <tr>
-                          <th>Email</th>
-                          <th>Fistname</th>
-                          <th>Lastname</th>
-                          <th>Home Address</th>
-                          <th>Work Address</th>
-                          <th>Verified</th>
-                        </tr>   
-                        <tr>
-                            <td>jonathanwilliams@yahoo.com</td>
-                            <td>Jonathan</td>
-                            <td>Williams</td>
-                            <td>59 Kaduna state road</td>
-                            <td>559 Epic tower road</td>
-                            <td>True</td>
-                          </tr>
-                          <tr>
-                              <td>jimmyjack@yahoo.com</td>
-                              <td>Jimmy</td>
-                              <td>Jack</td>
-                              <td>24 oni road</td>
-                              <td>559 Epic tower road</td>
-                              <td>True</td>
-                            </tr>
-                            <tr>
-                                <td>sandraodia@yahoo.com</td>
-                                <td>Sandra</td>
-                                <td>Odia</td>
-                                <td>24 Lekki phase 2 road</td>
-                                <td>559 Epic tower road</td>
-                                <td>True</td>
-                              </tr>
-                </table>
-             
-              </div>
-
+  <div class="main-container1">
+  
+ <div class="dasboard-side-bar">
+   <div class="ul-div">
+  <ul class="ul-sidebar-list">
+    <li ><a href="admin-dashboard.html" class="sidebar-list">All loans</a></li>
+    <li ><a href="approve-reject.html" class="sidebar-list">Approve/Reject</a></li>
+    <li class="sidebar-list"><a href="repaid.html" class="sidebar-list">Repaid</a></li>
+    <li ><a href="repayment-record.html"class="sidebar-list" >Repayment Record</a></li>
+    <li ><a href="unrepaid.html" class="sidebar-list">Unrepaid</a></li>
+    <li ><a href="verified.html" class="sidebar-list" id="all-loans" >Verified</a></li>
+  </ul>
+  <ul>
+      <li ><a href="../client/signin.html" class="sidebar-list">Log out</a></li>
+  </ul>
+  </div>
+</div>
+<div class="loan-container1">
+    <h2 id="h2-text">Verified</h2>
+    <table class="loan-history-table">
+            <tr>
+              <th>Email</th>
+              <th>Fistname</th>
+              <th>Lastname</th>
+              <th>HomeAddress</th>
+              <th>WorkAddress</th>
+              <th>Verified</th>
+            </tr>   
+            <tr>
+                <td>jonathanwilliams@yahoo.com</td>
+                <td>Jonathan</td>
+                <td>Williams</td>
+                <td>59 Kaduna state road</td>
+                <td>559 Epic tower road</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                  <td>jimmyjack@yahoo.com</td>
+                  <td>Jimmy</td>
+                  <td>Jack</td>
+                  <td>24 oni road</td>
+                  <td>559 Epic tower road</td>
+                  <td>True</td>
+                </tr>
+                <tr>
+                    <td>sandraodia@yahoo.com</td>
+                    <td>Sandra</td>
+                    <td>Odia</td>
+                    <td>24 Lekki phase 2 road</td>
+                    <td>559 Epic tower road</td>
+                    <td>True</td>
+                  </tr>
+    </table>
+ 
+  </div>
+</div>
+<div class="footer-div">Copyright © 2019. QuickCredit</div>
 </body>
-<div class="footer-div">copyright © 2019. QuickCredit @ Andela.com</div>
+</html>
+
+
 </html>
