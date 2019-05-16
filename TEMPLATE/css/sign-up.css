@@ -25,10 +25,27 @@
   .main-container{
     height: 100vh;
     background-image: url('../images/11.jpg');
-    display:flex;
-    flex-flow: column;
+    /* display:flex; */
+    /* flex-flow: column; */
     background-repeat: no-repeat;
     background-size: 100% 100%;
+  }
+  .side-bar{
+     display:flex;
+    flex-flow: column;
+    /* justify-content: space-between; */
+    height: 800px;
+    background-color: #fff;
+    width: 200px;
+  }
+  .ul-div{
+    margin-top: -135px;
+  }
+  .ul-sidebar-list{
+    margin-top: 250px; 
+  }
+  .ul-sidebar-list{
+    margin-top: 250px; 
   }
   .text-white{
     color:#fff;
@@ -238,6 +255,7 @@
     display: flex;
     margin: auto;
     width: 600px;
+    margin-left: 354px;
     /* height: 400px; */
     flex-flow: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
@@ -322,7 +340,7 @@
     font-size: 14px;
   }
   #apply-container{
-    margin-top: -9px;
+    margin-top: -479px;
     height: 500px;
   }
   .tenor-container{
@@ -364,7 +382,7 @@ button{
         margin-bottom: 55px;
       }
       .site-titled{
-        margin-top: 15px;
+        margin-top: 285px;
       }
       .form-container{
         display: flex;

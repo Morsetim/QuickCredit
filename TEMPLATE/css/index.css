@@ -270,11 +270,10 @@ body{
     width: 100%;
   }
   .para{
-    font-size: 22px;
+    font-size: 21px;
     width: 65%;
     text-align: center;
     font-family: 'Anonymous Pro';
-    /* font-size: 22px;  */
   }
   input{
     padding: 12px;
