@@ -256,6 +256,7 @@
     /* text-align: center; */
     margin-right:180px;
   }
+  
   input[type=email], input[type=password], [type=text], input[type=number]{
     width: 70%;
     padding: 12px 7px;
@@ -303,6 +304,11 @@
   }
   #afford{
     margin: 0 5px 0 5px;
+  }
+  .selection{
+    width: 80%;
+    padding: 20px 16px;
+    margin-left: 19px
   }
   input[type=email], input[type=password], [type=text], input[type=number]{
     width: 80%;
@@ -543,11 +549,6 @@ button{
         margin-left: -125px;
       }
 
-      .selection{
-        width: 80%;
-        padding: 10px 6px;
-        margin-left: 19px
-      }
      
       /* Ends here */
       /* dashboard container section */
