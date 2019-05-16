@@ -24,8 +24,9 @@
 }
 .main-container{
   height: 100vh;
-  background-color:#f4f4f4;
+  background-image: url('../images/11.jpg');
   display:flex;
+  flex-flow: column;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -52,6 +53,9 @@ margin-right:20px;
 }
 .site-titled{
   margin-top: 55px;
+}
+.site-titled a{
+  text-decoration:none;
 }
 body{
     width: 100%;
@@ -192,8 +196,8 @@ body{
   }
   input{
     padding: 12px;
-    background-color: #2b6898;
-    color: #f4f4f4;
+    /* background-color: #2b6898; */
+    color: black;
     margin-top: -15px;
     border-radius: 12px;
     box-sizing: border-box;
@@ -265,10 +269,13 @@ button{
 
 }
 .forget-password-div{
-  width: 60%;
-  margin-left: 138px;
+  width: 100%;
+  /* margin-left: 138px; */
+  /* border: 1px solid white; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 0;
+  margin-left: 55px
 }
 #forget-password{
   margin: 0px 0px 0px 28px;
@@ -278,9 +285,10 @@ button{
   }
   #forget-password a{
     color: #92bf20;
+    padding-right: 15px
   }
   #a-forget-password{
-    color: #92bf20;
+    color: #f4f4f4;
     text-decoration: none
   }
 
@@ -389,7 +397,7 @@ button{
   
 
   .element-container-sign-in{
-    background-color: #fff;
+    /* background-color: #fff; */
     display: flex;
     margin: auto;
     width: 440px;
@@ -428,9 +436,10 @@ button{
   input[type=email], input[type=password], [type=text], input[type=number]{
     width: 70%;
     padding: 10px 6px;
-    background-color: #fff;
+    /* background-color: #fff; */
     margin: 8px 0px 8px 8px;
     display: inline-block;
+    color: black;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -447,10 +456,9 @@ button{
     background-color:#2b6898;
 }
   .forget-password-div{
-    width: 60%;
-    margin-left: 98px;
+    width: 80%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
   #forget-password{
     margin: 0px 0px 0px 165px;
@@ -459,7 +467,7 @@ button{
     color: #2b6898;
     }
     #a-forget-password{
-      color: #2b6898;
+      color: #f4f4f4;
       text-decoration: none
     }
     #create-account{
@@ -468,7 +476,7 @@ button{
       /* padding-left: 2px; */
     }
     a#create-account{
-      color: #2b6898;
+      color: #f4f4f4;
       text-decoration: none;
       /* margin-left: 1px; */
     }
