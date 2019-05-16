@@ -305,7 +305,7 @@ text-decoration: none;
         text-align: center;
     }
     td, th {
-      border-bottom: 1px solid #2c3642;
+      border-bottom: none;
     }
     .footer-div{
         height: 60px;
@@ -359,7 +359,7 @@ margin-top: -30px
         text-align: center;
     }
     td, th {
-      border-bottom: 1px solid #2c3642;
+      border-bottom: none;
     }
     input[type="checkbox"]{
         background-color: #fff;

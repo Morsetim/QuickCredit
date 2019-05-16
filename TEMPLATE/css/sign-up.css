@@ -24,8 +24,9 @@
   }
   .main-container{
     height: 100vh;
-    background-color:#f4f4f4;
+    background-image: url('../images/11.jpg');
     display:flex;
+    flex-flow: column;
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
@@ -51,7 +52,8 @@
     
   }
   .site-titled{
-    margin-top: 55px;
+    margin-top: 35px;
+    margin-bottom: 21px;
   }
   body{
       width: 100%;
@@ -221,7 +223,7 @@
       padding-top: 25px;
   }
   .element-container{
-    background-color:#fff;
+    /* background-color:#fff; */
     display: flex;
     margin: auto;
     width: 600px;
@@ -232,7 +234,7 @@
     margin-top: 10px;
   }
   .apply-element-container{
-    background-color:#f4f4f4;
+    /* background-color:#f4f4f4; */
     display: flex;
     margin: auto;
     width: 600px;
@@ -240,19 +242,19 @@
     flex-flow: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
     padding :0px;
-    margin-top: 10px; 
+    /* margin-top: -10px;  */
   }
   .form-container{
   display: flex;
   flex-flow: column;
   width: 430px;
-  margin-left: 140px;
-  margin-top: 20px
+  margin-left: 200px;
+  /* margin-top: 40px */
   }
   #signup{
     margin-top: 13px;
     /* text-align: center; */
-    margin-left:-135px;
+    margin-right:180px;
   }
   input[type=email], input[type=password], [type=text], input[type=number]{
     width: 70%;
@@ -276,12 +278,10 @@
   
   }
   .forget-password-div{
-    width: 100%;
-    /* margin-left: 38px; */
+    width: 60%;
+    margin-left: 120px;
     display: flex;
     justify-content: space-evenly;
-    /* border: 1px solid red; */
-    /* margin-right: 140px; */
   }
   .last-div{
     padding: 0;
@@ -292,7 +292,7 @@
     justify-content: space-around;
   }
   .space-div a{
-    color: #2b6898;
+    color: white;
     text-decoration: none;
   }
   .fourth-div-element:hover{
@@ -304,17 +304,69 @@
   #afford{
     margin: 0 5px 0 5px;
   }
- 
+  input[type=email], input[type=password], [type=text], input[type=number]{
+    width: 80%;
+    /* padding: 10px 6px; */
+    background-color: #fff;
+    margin: 5px 0px 8px -58px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  #apply-container{
+    margin-top: -9px;
+    height: 500px;
+  }
+  .tenor-container{
+    width: 83%;
+    /* margin: 8px 0px 8px 8px; */
+    margin-left:-57px;
+    font-size: 15px;
+    font-weight: 520;
+    color: #2c3642;
+  }
+button{
+    width: 80%;
+    margin: 8px 0px 8px -58px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 17px;
+    padding: 5px;
+    color:white;
+    background-color:#2b6898;
+}
+.forget-password-div{
+  width: 60%;
+  margin-left: 120px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.forget-password-div a{
+  text-decoration:none;
+  color:white;
+}
     /* Ends here */
     @media screen and (max-width: 680px){
       .element-container{
-        background-color:#fff;
+        /* background-color:#fff; */
         display: flex;
         margin: auto;
-        width: 500px;
-        height: 550px;
-        flex-flow: column;
+        width: 380px;
+        height: 488px;
+        margin-bottom: 55px;
       }
+      .site-titled{
+        margin-top: 15px;
+      }
+      .form-container{
+        display: flex;
+        flex-flow: column;
+        width: 430px;
+        margin-left: 389px;
+        margin-top: 50px
+        }
     .account-seq{
       width: 80%;
       height: 30px;
@@ -324,7 +376,63 @@
       border: 1px solid rebeccapurple;
       padding: 12px;
     }
-   
+    input[type=email], input[type=password], [type=text], input[type=number]{
+      width: 50%;
+      /* padding: 10px 6px; */
+      background-color: #fff;
+      margin: 5px 0px 8px -58px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .form-container{
+      display: flex;
+      flex-flow: column;
+      width: 430px;
+      margin-left: 140px;
+      margin-top: 50px
+      }
+  button{
+      width: 50%;
+      margin: 8px 0px 8px -58px;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 17px;
+      padding: 5px;
+      color:white;
+      background-color:#2b6898;
+  }
+  .apply-element-container{
+    /* background-color:#f4f4f4; */
+    display: flex;
+    margin: auto;
+    width: 380px;
+    /* height: 400px; */
+    flex-flow: column;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    padding :0px;
+    /* margin-top: -10px;  */
+  }
+  .forget-password-div{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 89px;
+  }
+  .tenor-container{
+    width: 43%;
+    /* margin: 8px 0px 8px 8px; */
+    margin-left:-57px;
+    font-size: 15px;
+    font-weight: 520;
+    color: #2c3642;
+  }
+  #signup{
+    margin-right: 299px;
+    margin-top: -33px;
+  }
     .third-div{
       /* margin-top: 200px; */
       color: white;
@@ -350,9 +458,9 @@
     }
     @media screen and (max-width: 480px){
       .element-container{
-        width: 40ch;
+        width: 20%;
         margin-right: 49px;
-        height: 88%;
+        /* height: 88%; */
       }
       .form-container{
         display: flex;
@@ -401,7 +509,7 @@
     
   
     .element-container-sign-in{
-      background-color:#f4f4f4;
+      /* background-color:#f4f4f4; */
       display: flex;
       margin: auto;
       width: 440px;
@@ -409,7 +517,7 @@
       flex-flow: column;
       padding :0px;
       /* margin-left: 42px; */
-      margin-top: 50px;
+      margin-top: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
     #loc-name{
@@ -425,54 +533,8 @@
     /* .login-password-recovery{
       display: flex;
     } */
-    #signup{
-      /* margin-right: 99px; */
-      margin-top: -33px;
-    }
-    .form-container{
-    display: flex;
-    flex-flow: column;
-    width: 430px;
-    /* margin-left: 19px; */
-    margin-top: 50px
-    }
-    
-    input[type=email], input[type=password], [type=text], input[type=number]{
-      width: 70%;
-      /* padding: 10px 6px; */
-      background-color: #fff;
-      margin: 5px 0px 8px 8px;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 14px;
-    }
-  button{
-      width: 70%;
-      margin: 8px 0px 8px 8px;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 17px;
-      padding: 5px;
-      color:white;
-      background-color:#2b6898;
-  }
-    .forget-password-div{
-      width: 60%;
-      margin-left: 118px;
-      display: flex;
-      justify-content: space-evenly;
-    }
-    .forget-password-div a{ 
-      text-decoration: none;
-      color: #2b6898;   
-    }
       /* Apply container section */
-      #apply-container{
-        margin-top: 25px;
-        height: 500px;
-      }
+     
       #apply-form-container{
         margin-top: 48px;
       }
@@ -480,13 +542,7 @@
         margin-top: -35px;
         margin-left: -125px;
       }
-      .tenor-container{
-        width: 70%;
-        margin: 8px 0px 8px 8px;
-        font-size: 15px;
-        font-weight: 520;
-        color: #2c3642;
-      }
+
       .selection{
         width: 80%;
         padding: 10px 6px;
@@ -569,50 +625,26 @@
       margin-top: -15px;
       margin-left: -15px
     }
-    input[type=email], input[type=password],input[type=text], input[type=number]{
-      width: 40%;
-      padding: 14px 10px;
-      margin: 4px 0px 4px 2px;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 12px;
-      height: 36px;
-    }
-    input[type=submit]{
-      width: 40%;
-      /* padding: 14px 10px; */
-      margin-left: 1px;
-    }
     button{
       width: 40%;
       /* padding: 14px 10px; */
       margin-left: 1px;
     }
     #signup{
-      margin-right: 99px;
-      font-size: 18px;
+      /* margin-right: 29px; */
+      font-size: 8px;
       margin-bottom: -19px;
       margin-top: -1px;
     }
-    .tenor-container{
-      display: flex;
-      width: 47%;
-      margin-left: 2px;
-      font-size: 15px;
-      color: #2c3642;
-    }
-    #tenor-name{
-      margin-top: 10px
-    }
+   
     /* .login-password-recovery{
       width: 100%;
     } */
     .forget-password-div{
       display: flex;
       justify-content: space-around;
-      width: 38%
+      width: 38%;
+     
     }
     #forget-password{
       color: #92bf20;
@@ -640,9 +672,9 @@
       margin-top: 150px
     }
     .element-container{
-      width: 40ch;
+      /* width: 20ch; */
       margin-right: 49px;
-      height: 88%;
+      /* height: 88%; */
     }
     #h1-sign{
         margin-right: 44px;
@@ -657,10 +689,7 @@
     #create-account{
       font-size: 14px;
     }
-    .forget-password-div{
-      width: 90%;
-      margin-left: 20px;
-    }
+    
     .form-container{
       display: flex;
       flex-flow: column;
