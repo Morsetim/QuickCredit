@@ -35,17 +35,23 @@
     flex-flow: column;
     /* justify-content: space-between; */
     height: 800px;
-    background-color: #fff;
+    /* background-color: #fff; */
     width: 200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
   .ul-div{
     margin-top: -135px;
   }
   .ul-sidebar-list{
     margin-top: 250px; 
+
   }
-  .ul-sidebar-list{
-    margin-top: 250px; 
+  .ul-sidebar-list a{
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
   }
   .text-white{
     color:#fff;
@@ -340,7 +346,8 @@
     font-size: 14px;
   }
   #apply-container{
-    margin-top: -479px;
+    /* margin-top: 79px; */
+    margin-top: -400px;
     height: 500px;
   }
   .tenor-container{
@@ -437,7 +444,7 @@ button{
     flex-flow: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
     padding :0px;
-    /* margin-top: -10px;  */
+    margin-top:-0px; 
   }
   .forget-password-div{
     width: 60%;
@@ -560,10 +567,10 @@ button{
       /* Apply container section */
      
       #apply-form-container{
-        margin-top: 48px;
+        /* margin-top: 48px; */
       }
       #apply1{
-        margin-top: -35px;
+        /* margin-top: -35px; */
         margin-left: -125px;
       }
 
