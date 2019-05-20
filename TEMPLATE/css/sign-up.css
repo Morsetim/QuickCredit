@@ -44,15 +44,11 @@
   }
   .ul-sidebar-list{
     margin-top: 250px; 
-
   }
-  .ul-sidebar-list a{
-    text-decoration: none;
-    list-style-type: none;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 700;
+  .primary-blue{
+    color: #2b6898;
   }
+  
   .text-white{
     color:#fff;
   }
@@ -347,7 +343,7 @@
   }
   #apply-container{
     /* margin-top: 79px; */
-    margin-top: -400px;
+    margin-top: -350px;
     height: 500px;
   }
   .tenor-container{
@@ -598,6 +594,15 @@ button{
       ul li{
         list-style-type: none;
         padding: 10px;
+        text-decoration: none;
+      }
+      ul li a{
+        list-style-type: none;
+        padding: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #fff;
+        font-weight: 700;
       }
       #apply{
         /* margin-top: -9px; */
