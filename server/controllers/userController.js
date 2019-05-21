@@ -2,8 +2,7 @@ import userData from '../models/db';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import env from 'dotenv';
-import loansData from '../models/loanModel';
-import loanRepayment from '../models/loanRepaymentModel';
+import db from '../models/db';
 env.config();
 
  class UserController {
@@ -24,7 +23,8 @@ env.config();
           userData.query(sql, params)
           .then((user) =>{
             const payload = {
-              email
+              email,firstName,lastName,
+              homeAddress,workAddress
               };
               const token = jwt.sign(payload, process.env.SECRET_KEY, {
                 expiresIn: 60 * 60 * 10 // 10 hours
@@ -34,8 +34,7 @@ env.config();
               .json({
                 status: 201,
                 message: 'Successfully created QuickCredit account',
-                token:token,
-                userProfile: user.rows[0]
+                token:token
               });
           }).catch(err => res.status(500).json({status:'Failed', message:err.message}));
         }).catch(err => res.status(500).json({status:'Failed', message:err.message}));
@@ -48,7 +47,7 @@ env.config();
           const checkHash = bcrypt.compareSync(password, user.rows[0].password);
           if(checkHash){
             const payload ={
-              email,
+              email
             };
           const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: 60 * 60 * 10}); // Expires in 10 hours
           req.token = token;
@@ -56,7 +55,7 @@ env.config();
                   .json({
                     status: 'Success',
                     message: 'successfull login',
-                    userData: user.rows[0],
+
                     token
                   });
           }
@@ -68,7 +67,19 @@ env.config();
         });
         }).catch(err =>res.status(500).json({status:'Failed', message:err.message}));
       }
-
+   
+      verified(req, res){
+          const {useremail} = req.params;
+          const userProfile = `UPDATE users SET status =$1 WHERE email = $2`;
+          const params = ['verified', useremail];
+          db.query(userProfile, params).then(user => {
+            return res.status(201)
+               .json({
+                   status:201,
+                   userProfile:user
+               });
+          }).catch(err =>res.status(422).json({status: 'Failed', message:err.message}))
+        }
     }
 
     export default new UserController();
