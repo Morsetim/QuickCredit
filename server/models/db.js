@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const connectionString = process.env.DEV_URL;
-const db = new Pool({connectionString});
+const db = new Pool(connectionString);
 
 db.connect().then(() =>{
     console.log('Successfully connected to PosgresDB');

@@ -14,8 +14,9 @@ router.route('/auth/signup')
 router.route('/auth/signin')
 .post(userValidator.signIn, userController.signIn);
 
-// router.route('/users/:useremail/verify')
-// .patch(verifyValidation.verify, userController.verified);
+router.route('/users/:useremail/verify')
+.patch(userController.verified);
+
 
 // router.route('/loans')
 // .get(authToken, userController.allLoans)
