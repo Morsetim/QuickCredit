@@ -1,6 +1,6 @@
 import loansData from '../models/db';
 import env from 'dotenv';
-import db from '../models/db';
+
 
 env.config();
 
@@ -64,7 +64,7 @@ class LoanController{
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
   unrepaidLoan(req, res){
-    const sql = `SELECT FROM loans WHERE status=$1 repaid=$2`
+    const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2`
     const params = ['approved', 'false'];
     loansData.query(sql,params).then(unrepaid=>{
       if(unrepaid){
@@ -83,7 +83,7 @@ class LoanController{
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
   repaidLoan(req, res){
-    const sql = `SELECT FROM loans WHERE status=$1 repaid=$2 balance=$3`
+    const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2 AND balance=$3`
     const params = ['approved', 'true', 0];
     loansData.query(sql,params).then(repaid=>{
       if(repaid){
