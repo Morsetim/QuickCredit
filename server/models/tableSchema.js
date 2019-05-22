@@ -1,16 +1,22 @@
 import { Pool } from 'pg';
-// const connectionString = 'postgres://newnkymy:DcRPimLCOcd-IbU6Idu2o21JQDaIDpDq@isilo.db.elephantsql.com:5432/newnkymy'
-
 import dotenv from 'dotenv';
 
 dotenv.config();
 const connectionString = process.env.DEV_URL;
 
-const pool =  new Pool(connectionString);
+console.log(connectionString)
+const pool = new Pool(connectionString);
 pool.connect();
 
 const createTable = () => {
-const createTableText =`
+
+  const createTableText = `
+DROP TABLE IF EXISTS users CASCADE;
+
+DROP TABLE IF EXISTS loans CASCADE;
+
+DROP TABLE IF EXISTS loanrepayment CASCADE;
+
 CREATE TABLE IF NOT EXISTS users(
   id SERIAL PRIMARY KEY,
   firstname VARCHAR(155) NOT NULL,
@@ -23,16 +29,19 @@ CREATE TABLE IF NOT EXISTS users(
   homeAddress text,
   workAddress text
 );
+
 CREATE TABLE IF NOT EXISTS loans(
+  userId int REFERENCES users(id) ON DELETE CASCADE,
   id SERIAL PRIMARY KEY,
-  firstname VARCHAR(155) NOT NULL,
-  lastname VARCHAR(155) NOT NULL,
-  email VARCHAR(155) UNIQUE NOT NULL,
   tenor VARCHAR(155) NOT NULL,
+  paymentInstallment INTEGER NOT NULL,
+  interest INTEGER NOT NULL,
+  balance INTEGER NOT NULL,
   amount INTEGER NOT NULL,
   repaid BOOLEAN DEFAULT false,
-  status VARCHAR(155) DEFAULT 'approved'
+  status VARCHAR(155) DEFAULT 'pending'
 );
+
 CREATE TABLE IF NOT EXISTS loanrepayment(
   id SERIAL PRIMARY KEY,
   userId int REFERENCES users(id) ON DELETE CASCADE,
@@ -40,18 +49,15 @@ CREATE TABLE IF NOT EXISTS loanrepayment(
   date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
   amount INTEGER NOT NULL,
   monthlyInstallment INTEGER NOT NULL,
-  paidAmount INTEGER NOT NULL,
   balance INTEGER NOT NULL
-);
-`;
+)`;
 
-pool.query(createTableText, (err, res) => {
+pool.query(createTableText, (err) => {
   if (err) {
-    console.log('-------', err);
     return err.message;
   }
-  console.log(res, connectionString)
-    pool.end();
-  });
+  pool.end();
+});
 };
 createTable();
+

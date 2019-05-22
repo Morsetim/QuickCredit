@@ -327,8 +327,10 @@
   }
   .selection{
     width: 80%;
-    padding: 20px 16px;
-    margin-left: 19px
+    padding: 4px;
+    margin-left: 19px;
+    font-size: 20px;
+    color:rgb(165, 153, 153);
   }
   input[type=email], input[type=password], [type=text], input[type=number]{
     width: 80%;
@@ -374,6 +376,11 @@ button{
   text-decoration:none;
   color:white;
 }
+#apply1{
+  width:150px;
+  margin-left: 25px;
+  padding: 10px;
+}
     /* Ends here */
     @media screen and (max-width: 680px){
       .element-container{
@@ -384,6 +391,7 @@ button{
         height: 488px;
         margin-bottom: 55px;
       }
+      
       .site-titled{
         margin-top: 285px;
       }
@@ -565,11 +573,6 @@ button{
       #apply-form-container{
         /* margin-top: 48px; */
       }
-      #apply1{
-        /* margin-top: -35px; */
-        margin-left: -125px;
-      }
-
      
       /* Ends here */
       /* dashboard container section */
