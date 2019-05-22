@@ -1,20 +1,20 @@
-import loanData from '../models/db';
+import loansData from '../models/db';
 import env from 'dotenv';
-import db from '../models/db';
+
 
 env.config();
 
 class LoanController{
   apply(req, res){
     const {firstName, lastName, email, tenor, amount} = req.body;
-    const interest = amount * (5/100);
-    const monthlyInstallment =+ amount + interest;
-    const paymentInstallment = monthlyInstallment / tenor;
-    const balance = amount - paymentInstallment
+    const interest = Number(amount) * (5/100);
+    const monthlyInstallment =+ Number(amount) + Number(interest);
+    const paymentInstallment = Number(monthlyInstallment) / Number(tenor);
+    const balance = amount - Number(paymentInstallment)
     const status = 'Pending';
-    const sql = 'INSERT INTO loans(firstname, lastname, email, tenor, amount) VALUES($1, $2, $3, $4, $5) RETURNING *';
-    const params = [firstName, lastName, email, tenor, amount];
-    loanData.query(sql, params).then(loan=>{
+    const sql = 'INSERT INTO loans(firstname, lastname, email, tenor, amount, monthlyInstallment, paymentInstallment, balance, interest) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
+    const params = [firstName, lastName, email, parseFloat(tenor), parseFloat(amount), parseFloat(monthlyInstallment), parseFloat(paymentInstallment), parseFloat(balance), parseFloat(interest)];
+    loansData.query(sql, params).then(loan=>{
       return res.status(201)
                 .json({
                     status : 201,
@@ -64,7 +64,7 @@ class LoanController{
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
   unrepaidLoan(req, res){
-    const sql = `SELECT FROM loans WHERE status=$1 repaid=$2`
+    const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2`
     const params = ['approved', 'false'];
     loansData.query(sql,params).then(unrepaid=>{
       if(unrepaid){
@@ -83,7 +83,7 @@ class LoanController{
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
   repaidLoan(req, res){
-    const sql = `SELECT FROM loans WHERE status=$1 repaid=$2 balance=$3`
+    const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2 AND balance=$3`
     const params = ['approved', 'true', 0];
     loansData.query(sql,params).then(repaid=>{
       if(repaid){
