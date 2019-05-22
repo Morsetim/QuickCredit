@@ -55,7 +55,6 @@ env.config();
                   .json({
                     status: 'Success',
                     message: 'successfull login',
-
                     token
                   });
           }
@@ -78,7 +77,7 @@ env.config();
                    status:201,
                    userProfile:user
                });
-          }).catch(err =>res.status(422).json({status: 'Failed', message:err.message}))
+          }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
         }
     }
 

@@ -1,4 +1,4 @@
-import loanData from '../models/db';
+import loansData from '../models/db';
 import env from 'dotenv';
 import db from '../models/db';
 
