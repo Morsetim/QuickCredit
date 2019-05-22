@@ -7,14 +7,14 @@ env.config();
 class LoanController{
   apply(req, res){
     const {firstName, lastName, email, tenor, amount} = req.body;
-    const interest = amount * (5/100);
-    const monthlyInstallment =+ amount + interest;
-    const paymentInstallment = monthlyInstallment / tenor;
-    const balance = amount - paymentInstallment
+    const interest = Number(amount) * (5/100);
+    const monthlyInstallment =+ Number(amount) + Number(interest);
+    const paymentInstallment = Number(monthlyInstallment) / Number(tenor);
+    const balance = amount - Number(paymentInstallment)
     const status = 'Pending';
-    const sql = 'INSERT INTO loans(firstname, lastname, email, tenor, amount) VALUES($1, $2, $3, $4, $5) RETURNING *';
-    const params = [firstName, lastName, email, tenor, amount];
-    loanData.query(sql, params).then(loan=>{
+    const sql = 'INSERT INTO loans(firstname, lastname, email, tenor, amount, monthlyInstallment, paymentInstallment, balance, interest) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
+    const params = [firstName, lastName, email, parseFloat(tenor), parseFloat(amount), parseFloat(monthlyInstallment), parseFloat(paymentInstallment), parseFloat(balance), parseFloat(interest)];
+    loansData.query(sql, params).then(loan=>{
       return res.status(201)
                 .json({
                     status : 201,
