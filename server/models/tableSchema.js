@@ -1,6 +1,4 @@
 import { Pool } from 'pg';
-// const connectionString = 'postgres://newnkymy:DcRPimLCOcd-IbU6Idu2o21JQDaIDpDq@isilo.db.elephantsql.com:5432/newnkymy'
-
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -11,6 +9,12 @@ pool.connect();
 
 const createTable = () => {
 const createTableText =`
+DROP TABLE IF EXISTS users CASCADE;
+
+DROP TABLE IF EXISTS loans CASCADE;
+
+DROP TABLE IF EXISTS loanrepayment CASCADE;
+
 CREATE TABLE IF NOT EXISTS users(
   id SERIAL PRIMARY KEY,
   firstname VARCHAR(155) NOT NULL,
@@ -29,6 +33,10 @@ CREATE TABLE IF NOT EXISTS loans(
   lastname VARCHAR(155) NOT NULL,
   email VARCHAR(155) UNIQUE NOT NULL,
   tenor VARCHAR(155) NOT NULL,
+  monthlyInstallment INTEGER NOT NULL,
+  paymentInstallment INTEGER NOT NULL,
+  interest INTEGER NOT NULL,
+  balance INTEGER NOT NULL,
   amount INTEGER NOT NULL,
   repaid BOOLEAN DEFAULT false,
   status VARCHAR(155) DEFAULT 'approved'
@@ -45,12 +53,10 @@ CREATE TABLE IF NOT EXISTS loanrepayment(
 );
 `;
 
-pool.query(createTableText, (err, res) => {
+pool.query(createTableText, (err) => {
   if (err) {
-    console.log('-------', err);
     return err.message;
   }
-  console.log(res, connectionString)
     pool.end();
   });
 };
