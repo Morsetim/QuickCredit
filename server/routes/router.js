@@ -1,6 +1,7 @@
 import express from 'express';
 import userController from '../controllers/userController';
 import userValidator from '../middlewares/uservalidation';
+import loanController from '../controllers/loanController';
 import authToken from '../middlewares/tokenAuthentication';
 import loanValidator from '../middlewares/loanValidation';
 import repaymentValidator from '../middlewares/loanRepaymentValidation';
@@ -33,8 +34,8 @@ router.route('/users/:useremail/verify')
 // router.route('/loans/:loanId/repayment')
 // .post(repaymentValidator.postRepayment, userController.createRepaymentRecord)
 
-// router.route('/loans')
-// .post(loanValidator.applyLoan, userController.apply)
+router.route('/loans')
+.post(loanValidator.applyLoan, loanController.apply)
 
 
 

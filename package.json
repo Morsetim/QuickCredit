@@ -2,10 +2,11 @@
   "name": "quickcredit",
   "version": "1.0.0",
   "description": "This is web app that grants people loan in other to allieviate poverty.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start:dev": "nodemon --watch server --exec babel-node -- server/app.js",
-    "build": "babel src -d lib",
+    "postinstall": "babel server -d build",
+    "start": "node build/app.js",
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require @babel/register ./server/spec/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint server/",
@@ -21,7 +22,7 @@
     "url": "https://github.com/Morsetim/QuickCredit/issues"
   },
   "homepage": "https://github.com/Morsetim/QuickCredit#readme",
-  "devDependencies": {
+  "dependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",

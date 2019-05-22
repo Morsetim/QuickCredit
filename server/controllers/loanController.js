@@ -6,16 +6,15 @@ env.config();
 
 class LoanController{
   apply(req, res){
-    const {firstname, lastname, email, tenor, amount} = req.body;
+    const {firstName, lastName, email, tenor, amount} = req.body;
     const interest = amount * (5/100);
     const monthlyInstallment =+ amount + interest;
     const paymentInstallment = monthlyInstallment / tenor;
     const balance = amount - paymentInstallment
     const status = 'Pending';
     const sql = 'INSERT INTO loans(firstname, lastname, email, tenor, amount) VALUES($1, $2, $3, $4, $5) RETURNING *';
-    const params = [firstname, lastname, email, tenor, amount];
-
-    loansData.query(sql, params).then(loan=>{
+    const params = [firstName, lastName, email, tenor, amount];
+    loanData.query(sql, params).then(loan=>{
       return res.status(201)
                 .json({
                     status : 201,
@@ -102,4 +101,7 @@ class LoanController{
                 });
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
+
 }
+
+export default new LoanController();
