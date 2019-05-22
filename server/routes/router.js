@@ -1,8 +1,10 @@
 import express from 'express';
 import userController from '../controllers/userController';
 import userValidator from '../middlewares/uservalidation';
+import loanController from '../controllers/loanController';
 import authToken from '../middlewares/tokenAuthentication';
 import loanValidator from '../middlewares/loanValidation';
+import loanRepayments from '../controllers/loanRepayment';
 import repaymentValidator from '../middlewares/loanRepaymentValidation';
 import verifyValidation from '../middlewares/verifiedValidation';
 
@@ -15,25 +17,26 @@ router.route('/auth/signin')
 .post(userValidator.signIn, userController.signIn);
 
 router.route('/users/:useremail/verify')
-.patch(verifyValidation.verify, userController.verified);
+.patch(userController.verified);
+
 
 router.route('/loans')
-.get(authToken, userController.allLoans)
+.get(loanController.allLoans)
 router.route('/loans/repaid')
-.get(userController.repaidLoans)
+.get(loanController.repaidLoan)
 router.route('/loans/unrepaid')
-.get(userController.unRepaidLoans);
+.get(loanController.unrepaidLoan);
 
 router.route('/loans/:loanId')
-.get(authToken, userController.getOneLoan)
-.patch(userController.updateApproveOrReject)
+.get(authToken, loanController.getOneLoan)
+.patch(loanRepayments.repaymentHistory)
 router.route('/loans/:loanId/repayment')
-.get(userController.repaymentHistory)
-router.route('/loans/:loanId/repayment')
-.post(repaymentValidator.postRepayment, userController.createRepaymentRecord)
+// .get(userController.repaymentHistory)
+// router.route('/loans/:loanId/repayment')
+// .post(repaymentValidator.postRepayment, userController.createRepaymentRecord)
 
 router.route('/loans')
-.post(loanValidator.applyLoan, userController.apply)
+.post(loanValidator.applyLoan, loanController.apply)
 
 
 

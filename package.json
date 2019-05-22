@@ -2,13 +2,15 @@
   "name": "quickcredit",
   "version": "1.0.0",
   "description": "This is web app that grants people loan in other to allieviate poverty.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start:dev": "nodemon --watch server --exec babel-node -- server/app.js",
-    "build": "babel src -d lib",
+    "postinstall": "babel server -d build",
+    "start": "node build/app.js",
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require @babel/register ./server/spec/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint server/"
+    "lint": "eslint server/",
+    "migrate": "babel-node -- server/models/tableSchema"
   },
   "repository": {
     "type": "git",
@@ -20,11 +22,11 @@
     "url": "https://github.com/Morsetim/QuickCredit/issues"
   },
   "homepage": "https://github.com/Morsetim/QuickCredit#readme",
-  "devDependencies": {
+  "dependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.6",
@@ -45,6 +47,7 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.7",
     "nyc": "^13.1.0",
+    "pg": "^7.11.0",
     "supertest": "^3.4.2",
     "swagger-jsdoc": "^3.2.9",
     "validator": "^10.9.0"
