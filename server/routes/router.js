@@ -43,6 +43,7 @@ router.route('/loans/unrepaid')
 
 router.route('/loans/:loanId')
 .get(authToken, checkAdmin, loanController.getOneLoan)
+
 .patch(loanRepayments.repaymentHistory)
 router.route('/loans/:loanId/repayment')
 .get(authToken, loanController.getOneLoan)
