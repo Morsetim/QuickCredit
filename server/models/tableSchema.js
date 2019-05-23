@@ -10,7 +10,8 @@ pool.connect();
 
 const createTable = () => {
 
-  const createTableText = `
+const createTableText =`
+
 DROP TABLE IF EXISTS users CASCADE;
 
 DROP TABLE IF EXISTS loans CASCADE;
@@ -58,6 +59,7 @@ pool.query(createTableText, (err) => {
   }
   pool.end();
 });
+
 };
 createTable();
 

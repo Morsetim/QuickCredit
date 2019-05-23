@@ -1,8 +1,5 @@
 import loansData from '../models/db';
-import env from 'dotenv';
 
-
-env.config();
 
 class LoanController {
 
@@ -61,16 +58,7 @@ class LoanController {
 
     const sql = `SELECT * FROM loans WHERE userId = ${userId}`
     loansData.query(sql).then(loan => {
-      return res.status(201)
-        .json({
-          status: 201,
-          data: [
-            {
-              allLoan: loan.rows
-            }
-          ]
-        });
-    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
+}).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
 
 /**
@@ -125,7 +113,8 @@ class LoanController {
       }
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
-  unrepaidLoan(req, res) {
+  unrepaidLoan(req, res){
+
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2`
     const params = ['approved', 'false'];
     loansData.query(sql, params).then(unrepaid => {
@@ -151,7 +140,8 @@ class LoanController {
    * @param {*} res
    * @memberof LoanController
    */
-  repaidLoan(req, res) {
+  repaidLoan(req, res){
+
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2 AND balance=$3`
     const params = ['approved', 'true', 0];
     loansData.query(sql, params).then(repaid => {
