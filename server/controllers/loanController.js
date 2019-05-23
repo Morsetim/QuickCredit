@@ -36,11 +36,7 @@ class LoanController {
         return res.status(201)
           .json({
             status: 201,
-            data: [
-              {
-                loan: loan.rows[0]
-              }
-            ]
+            data: loan.rows[0]
           });
       }).catch(e => console.log(e));
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }));
@@ -74,11 +70,7 @@ class LoanController {
       return res.status(201)
         .json({
           status: 201,
-          data: [
-            {
-              allLoan: loan.rows
-            }
-          ]
+          data: loan.rows
         });
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
@@ -91,18 +83,16 @@ class LoanController {
    * @memberof LoanController
    */
   getOneLoan(req, res) {
-    const loanId = req.params;
+    const {loanId} = req.params;
+    console.log(loanId);
     const sql = `SELECT * FROM loans WHERE id=${loanId}`
     loansData.query(sql).then(loan => {
+      console.log(loan);
       if (loan) {
         return res.status(201)
           .json({
             status: 201,
-            data: [
-              {
-                specificLoan: loan
-              }
-            ]
+            data : loan.rows[0]          
           });
       } else {
         return res.status(400)
@@ -123,7 +113,7 @@ class LoanController {
           .json({
             status: 201,
             message: 'All unrepaid loans',
-            unrepaid: unrepaid
+            unrepaid: unrepaid.rowCount
           });
       }
       return res.status(400)
