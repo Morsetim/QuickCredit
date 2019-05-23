@@ -145,6 +145,7 @@ class LoanController {
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2 AND balance=$3`
     const params = ['approved', 'true', 0];
     loansData.query(sql, params).then(repaid => {
+      console.log(repaid);
       if (repaid) {
         return res.status(201)
           .json({
@@ -157,6 +158,18 @@ class LoanController {
         .json({
           status: 400,
           message: 'No repaid loans'
+        });
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
+  }
+  approve(req, res) {
+    const { loanId } = req.params;
+    const loanStatus = `UPDATE loans SET status =$1 WHERE loanId = $2`;
+    const params = ['Approved', loanId];
+    loansData.query(loanStatus, params).then(loan => {
+      return res.status(201)
+        .json({
+          status: 201,
+          loanStatus: loan
         });
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
