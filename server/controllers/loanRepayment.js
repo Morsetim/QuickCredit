@@ -4,9 +4,9 @@ import loansData from '../models/db';
 class LoanRepayment{
   repaymentHistory(req, res){
     const {loanId} = req.params;
-    const userHistory = `SELECT * FROM loanrepayment WHERE id = $1`;
+    const userHistory = `SELECT * FROM loanrepayment WHERE id=$1`;
     const params = [loanId];
-    db.query(userHistory, params).then(loan => {
+    loansData.query(userHistory, params).then(loan => {
       return res.status(201)
          .json({
              status:201,
@@ -19,6 +19,7 @@ class LoanRepayment{
          });
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
+
 
   repaymentRecord(req, res){
     const {amount, monthlyInstallment, balance} = req.body;
@@ -33,11 +34,7 @@ class LoanRepayment{
       return res.status(201)
           .json({
             status: 201,
-            data: [
-              {
-                loan: loan.rows[0]
-              }
-            ]
+            data: loan.rows[0]
           });
         }
       return res.status(422)
@@ -46,8 +43,8 @@ class LoanRepayment{
             message : `User with id ${userId} and loanId ${loanId} Does not exist in your catalogue`
           })
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }));
-  }
-}
 
+}
+}
 
 export default new LoanRepayment();

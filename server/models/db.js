@@ -4,7 +4,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const connectionString = process.env.DEV_URL;
+let connectionString;
+
+if (process.env.NODE_ENV == 'production') {
+  connectionString = process.env.DATABASE_URL;
+}
+
+if (process.env.NODE_ENV == 'development') {
+  connectionString = process.env.DEV_URL;
+}
+
 const db = new Pool(connectionString);
 
 db.connect().then(() =>{
