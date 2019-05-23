@@ -1,8 +1,5 @@
 import loansData from '../models/db';
-import env from 'dotenv';
 
-
-env.config();
 
 class LoanController {
 
@@ -39,11 +36,7 @@ class LoanController {
         return res.status(201)
           .json({
             status: 201,
-            data: [
-              {
-                loan: loan.rows[0]
-              }
-            ]
+            data: loan.rows[0]
           });
       }).catch(e => console.log(e));
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }));
@@ -61,16 +54,7 @@ class LoanController {
 
     const sql = `SELECT * FROM loans WHERE userId = ${userId}`
     loansData.query(sql).then(loan => {
-      return res.status(201)
-        .json({
-          status: 201,
-          data: [
-            {
-              allLoan: loan.rows
-            }
-          ]
-        });
-    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
+}).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
 
 /**
@@ -86,11 +70,7 @@ class LoanController {
       return res.status(201)
         .json({
           status: 201,
-          data: [
-            {
-              allLoan: loan.rows
-            }
-          ]
+          data: loan.rows
         });
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
@@ -103,18 +83,16 @@ class LoanController {
    * @memberof LoanController
    */
   getOneLoan(req, res) {
-    const loanId = req.params;
+    const {loanId} = req.params;
+    console.log(loanId);
     const sql = `SELECT * FROM loans WHERE id=${loanId}`
     loansData.query(sql).then(loan => {
+      console.log(loan);
       if (loan) {
         return res.status(201)
           .json({
             status: 201,
-            data: [
-              {
-                specificLoan: loan
-              }
-            ]
+            data : loan.rows[0]          
           });
       } else {
         return res.status(400)
@@ -125,7 +103,8 @@ class LoanController {
       }
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
-  unrepaidLoan(req, res) {
+  unrepaidLoan(req, res){
+
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2`
     const params = ['approved', 'false'];
     loansData.query(sql, params).then(unrepaid => {
@@ -134,7 +113,7 @@ class LoanController {
           .json({
             status: 201,
             message: 'All unrepaid loans',
-            unrepaid: unrepaid
+            unrepaid: unrepaid.rowCount
           });
       }
       return res.status(400)
@@ -151,10 +130,12 @@ class LoanController {
    * @param {*} res
    * @memberof LoanController
    */
-  repaidLoan(req, res) {
+  repaidLoan(req, res){
+
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2 AND balance=$3`
     const params = ['approved', 'true', 0];
     loansData.query(sql, params).then(repaid => {
+      console.log(repaid);
       if (repaid) {
         return res.status(201)
           .json({
@@ -167,6 +148,18 @@ class LoanController {
         .json({
           status: 400,
           message: 'No repaid loans'
+        });
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
+  }
+  approve(req, res) {
+    const { loanId } = req.params;
+    const loanStatus = `UPDATE loans SET status =$1 WHERE loanId = $2`;
+    const params = ['Approved', loanId];
+    loansData.query(loanStatus, params).then(loan => {
+      return res.status(201)
+        .json({
+          status: 201,
+          loanStatus: loan
         });
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
