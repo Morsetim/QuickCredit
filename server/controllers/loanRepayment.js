@@ -20,6 +20,7 @@ class LoanRepayment{
     }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
   }
 
+
   repaymentRecord(req, res){
     const {amount, monthlyInstallment, balance} = req.body;
     const {userId} = req.params;
@@ -46,8 +47,8 @@ class LoanRepayment{
             message : `User with id ${userId} and loanId ${loanId} Does not exist in your catalogue`
           })
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }));
-  }
-}
 
+}
+}
 
 export default new LoanRepayment();

@@ -35,13 +35,26 @@ router.route('/loans/unrepaid')
 router.route('/loans/:loanId')
   .get(authToken, checkAdmin, loanController.getOneLoan)
   .patch(authToken, checkAdmin,loanRepayments.repaymentHistory)
+.get(loanController.allLoans)
+router.route('/loans/repaid')
+.get(authToken, checkAdmin, loanController.repaidLoan)
+router.route('/loans/unrepaid')
+.get(authToken, checkAdmin,loanController.unrepaidLoan);
+
+router.route('/loans/:loanId')
+.get(authToken, checkAdmin, loanController.getOneLoan)
+.patch(loanRepayments.repaymentHistory)
 router.route('/loans/:loanId/repayment')
-// .get(userController.repaymentHistory)
-// router.route('/loans/:loanId/repayment')
-// .post(repaymentValidator.postRepayment, userController.createRepaymentRecord)
+.get(authToken, loanController.getOneLoan)
+router.route('/loans/:loanId/repayment')
+.post(authToken, checkAdmin, repaymentValidator.postRepayment, loanRepayments.repaymentRecord)
+router.route('/loans/loans/:loanId')
+.post(authToken, checkAdmin,loanController.approve)
 
 router.route('/loans')
-  .post(authToken,loanValidator.applyLoan, loanController.apply)
+  .post(authToken, checkAdmin, loanValidator.applyLoan, loanController.apply)
+
+
 
 
 
