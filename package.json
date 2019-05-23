@@ -10,6 +10,7 @@
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require @babel/register ./server/spec/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint server/",
+    "heroku-postbuild": "npm run migrate",
     "migrate": "babel-node -- server/models/tableSchema"
   },
   "repository": {

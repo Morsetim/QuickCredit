@@ -1,105 +1,164 @@
 import loansData from '../models/db';
-import env from 'dotenv';
 
 
-env.config();
+class LoanController {
 
-class LoanController{
-  apply(req, res){
-    const {firstName, lastName, email, tenor, amount} = req.body;
-    const interest = Number(amount) * (5/100);
-    const monthlyInstallment =+ Number(amount) + Number(interest);
-    const paymentInstallment = Number(monthlyInstallment) / Number(tenor);
-    const balance = amount - Number(paymentInstallment)
-    const status = 'Pending';
-    const sql = 'INSERT INTO loans(firstname, lastname, email, tenor, amount, monthlyInstallment, paymentInstallment, balance, interest) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
-    const params = [firstName, lastName, email, parseFloat(tenor), parseFloat(amount), parseFloat(monthlyInstallment), parseFloat(paymentInstallment), parseFloat(balance), parseFloat(interest)];
-    loansData.query(sql, params).then(loan=>{
-      return res.status(201)
-                .json({
-                    status : 201,
-                    data : [
-                        {
-                            loan:loan[0]
-                        }
-                    ]
-                });
-    }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
+  /**
+   *
+   *
+   * @param {obj} req
+   * @param {obj} res
+   * @memberof LoanController
+   */
+  apply(req, res) {
+    const { tenor, amount } = req.body;
+    const interest = Number(amount) * (5 / 100);
+    const principal = + Number(amount) + Number(interest);
+    const paymentInstallment = Number(principal) / Number(tenor);
+    const balance = amount;
+    const { userId } = req.decoded;
+
+    loansData.query(`SELECT balance FROM loans where userId = '${userId}' `).then((loanFound) => {
+      if ( loanFound.rowCount > 0) {
+        const recentLoanBalance = loanFound.rows[loanFound.rows.length - 1].balance;
+        if (recentLoanBalance !== 0) {
+          return res.status(400)
+            .json({
+              message: 'You not permitted to apply for this loan, pay your pending debt',
+              debt: recentLoanBalance
+            });
+        }
+      }
+
+      const sql = 'INSERT INTO loans( tenor, amount, paymentInstallment, balance, interest, userId) VALUES($1, $2, $3, $4, $5,$6) RETURNING *';
+      const params = [parseFloat(tenor), parseFloat(amount), parseFloat(paymentInstallment), parseFloat(balance), parseFloat(interest), userId];
+      loansData.query(sql, params).then(loan => {
+        return res.status(201)
+          .json({
+            status: 201,
+            data: [
+              {
+                loan: loan.rows[0]
+              }
+            ]
+          });
+      }).catch(e => console.log(e));
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }));
+
   }
-  allLoans(req, res){
+  /**
+   *
+   * 
+   * @param {obj} req
+   * @param {obj} res
+   * @memberof LoanController
+   */
+  userLoanList(req, res) {
+    const { userId } = req.decoded;
+
+    const sql = `SELECT * FROM loans WHERE userId = ${userId}`
+    loansData.query(sql).then(loan => {
+}).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
+  }
+
+/**
+   *
+   * 
+   * @param {obj} req
+   * @param {obj} res
+   * @memberof LoanController
+   */
+  allLoans(req, res) {
     const sql = `SELECT * FROM loans`
-    loansData.query(sql).then(loan=>{
+    loansData.query(sql).then(loan => {
       return res.status(201)
-                .json({
-                    status : 201,
-                    data : [
-                        {
-                            allLoan:loan
-                        }
-                    ]
-                });
-    }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
+        .json({
+          status: 201,
+          data: [
+            {
+              allLoan: loan.rows
+            }
+          ]
+        });
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
-  getOneLoan(req, res){
+
+  /**
+   *
+   *
+   * @param {*} req
+   * @param {*} res
+   * @memberof LoanController
+   */
+  getOneLoan(req, res) {
     const loanId = req.params;
     const sql = `SELECT * FROM loans WHERE id=${loanId}`
-    loansData.query(sql).then(loan =>{
-      if(loan){
-      return res.status(201)
-                .json({
-                    status : 201,
-                    data : [
-                        {
-                            specificLoan:loan
-                        }
-                    ]
-                });
-      }else{
+    loansData.query(sql).then(loan => {
+      if (loan) {
+        return res.status(201)
+          .json({
+            status: 201,
+            data: [
+              {
+                specificLoan: loan
+              }
+            ]
+          });
+      } else {
         return res.status(400)
-                .json({
-                    status : 400,
-                    message : `loan with id ${loan} does not exist in your catalogue`
-                });
+          .json({
+            status: 400,
+            message: `loan with id ${loan} does not exist in your catalogue`
+          });
       }
-    }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
   unrepaidLoan(req, res){
+
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2`
     const params = ['approved', 'false'];
-    loansData.query(sql,params).then(unrepaid=>{
-      if(unrepaid){
+    loansData.query(sql, params).then(unrepaid => {
+      if (unrepaid) {
         return res.status(201)
-                .json({
-                    status : 201,
-                    message: 'All unrepaid loans',
-                    unrepaid: unrepaid
-                });
+          .json({
+            status: 201,
+            message: 'All unrepaid loans',
+            unrepaid: unrepaid
+          });
       }
       return res.status(400)
-                .json({
-                    status : 400,
-                    message: 'No unrepaid loans'
-                });
-    }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
+        .json({
+          status: 400,
+          message: 'No unrepaid loans'
+        });
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
+  /**
+   *
+   *
+   * @param {*} req
+   * @param {*} res
+   * @memberof LoanController
+   */
   repaidLoan(req, res){
+
     const sql = `SELECT FROM loans WHERE status=$1 AND repaid=$2 AND balance=$3`
     const params = ['approved', 'true', 0];
-    loansData.query(sql,params).then(repaid=>{
-      if(repaid){
+    loansData.query(sql, params).then(repaid => {
+      if (repaid) {
         return res.status(201)
-                .json({
-                    status : 201,
-                    message: 'All repaid loans',
-                    repaid: repaid
-                });
+          .json({
+            status: 201,
+            message: 'All repaid loans',
+            repaid: repaid
+          });
       }
       return res.status(400)
-                .json({
-                    status : 400,
-                    message: 'No repaid loans'
-                });
-    }).catch(err =>res.status(500).json({status: 'Failed', message:err.message}))
+        .json({
+          status: 400,
+          message: 'No repaid loans'
+        });
+    }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }
 
 }

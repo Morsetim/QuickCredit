@@ -3,10 +3,10 @@ import validator from 'validator';
 
 class postRepaymentValidator{
     postRepayment(req, res, next){
-        const {loanId, createdOn, amount, monthlyInstallment, paidAmount, balance} = req.body
+        const {loanId, createdOn, amount, monthlyInstallment, balance} = req.body
         const fieldsErrors = {};
 
-        if(loanId == undefined || createdOn == undefined || amount == undefined || monthlyInstallment == undefined ||paidAmount == undefined || balance == undefined){
+        if(loanId == undefined || createdOn == undefined || amount == undefined || monthlyInstallment == undefined || balance == undefined){
             return res.status(400).json({status:'Failed', message:'All or some fields are empty'});
     }
     if(loanId.search(/^[0-9]*$/) === -1){
@@ -26,12 +26,6 @@ class postRepaymentValidator{
     }
     if(!validator.isLength(monthlyInstallment, {min:4, max:6})){
         fieldsErrors.monthlyInstallment = 'Loans can only be 1000 above and 500,000 below';
-    }
-    if(paidAmount.search(/^[0-9]*$/) === -1){
-        fieldsErrors.paidAmount = 'Please input numbers';
-    }
-    if(!validator.isLength(paidAmount, {min:4, max:6})){
-        fieldsErrors.paidAmount = 'Loans can only be 1000 above and 500,000 below';
     }
     if(balance.search(/^[0-9]*$/) === -1){
         fieldsErrors.balance = 'Please input numbers';
