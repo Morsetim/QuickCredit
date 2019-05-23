@@ -20,13 +20,14 @@ Quick Credit is a non line lending platform that provides short term soft loans 
 * Nodejs (Express framework)
 
 ### Pivotal Tracker
-QuickCredit app project is broken down into small task with pivotal tracker board. The link to the relevant Pivoltal tracker board is 
+QuickCredit app project is broken down into small task with pivotal tracker board. The link to the relevant Pivoltal tracker board is https://www.pivotaltracker.com/n/projects/2326625
 
 ### API Enpoint
-API Endpoints is hosted at 
+API Endpoints is hosted at https://quickcr.herokuapp.com/
 
 ### UI Templates
-The application is hosted online on gh-pages with 
+The application is hosted online on gh-pages with https://morsetim.github.io/QuickCredit/TEMPLATE/html/client/index,
+https://morsetim.github.io/QuickCredit/TEMPLATE/html/admin/admin-dashboard.html
  [QuickCredit] 
 
 ### API Documentation
