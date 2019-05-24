@@ -31,6 +31,7 @@ router.route('/loans')
 
 router.route('/loans/:loanId')
   .get(authToken, loanController.getOneLoan)
+  .patch(authToken, loanController.approvedb)
 
 router.route('/loans/user')
   .get(authToken, loanController.userLoanList)

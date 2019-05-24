@@ -1,6 +1,6 @@
 # QuickCredit
 
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/ecf7634786c036bb3d9f/maintainability)](https://codeclimate.com/github/Morsetim/QuickCredit/maintainability)
 
 
 ## Description
