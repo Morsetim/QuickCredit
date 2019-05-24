@@ -1,4 +1,4 @@
-[05:58, 5/24/2019] Hnobi: import chai from 'chai';
+import chai from 'chai';
 import supertest from 'supertest';
 import app from '../app';
 
