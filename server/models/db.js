@@ -2,10 +2,8 @@ import {Pool} from 'pg';
 import dotenv from 'dotenv';
 import configuration from '../config/config';
 
-const env = process.env.NODE_ENV || 'development';
-
-const config = configuration[env];
-const connectionString = config.url;
+;
+const connectionString = process.env.DEV_URL;
 dotenv.config();
 
 const db = new Pool(connectionString);
