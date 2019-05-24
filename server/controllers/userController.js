@@ -75,15 +75,26 @@ class UserController {
 
   verified(req, res) {
     const { useremail } = req.params;
-    const userProfile = `UPDATE users SET status =$1 WHERE email = $2`;
+    const userProfile = `UPDATE users SET status =$1 WHERE email = $2 RETURNING *`;
     const params = ['verified', useremail];
     db.query(userProfile, params).then(user => {
       return res.status(201)
         .json({
           status: 201,
-          userProfile: user
+          data: user.rows[0]
         });
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
+  }
+
+  updateUserRole(req, res) {
+    const { id } = req.params
+    const sql = `UPDATE users SET isAdmin = ${true} WHERE id = ${id}`;
+      db.query(sql).then(user => {
+        res.json({
+          message: 'Successffuly update user role',
+          isAdmin: user.rows[0]
+        })
+      }).catch(e => console.log(e.message))
   }
 }
 
