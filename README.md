@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ecf7634786c036bb3d9f/maintainability)](https://codeclimate.com/github/Morsetim/QuickCredit/maintainability)
 
-
+[![Coverage Status](https://coveralls.io/repos/github/Morsetim/QuickCredit/badge.svg)](https://coveralls.io/github/Morsetim/QuickCredit)
 ## Description
 Quick Credit is a non line lending platform that provides short term soft loans to individuals. This helps solve problems of financial inclusion as a way to alleviate poverty and empower low income earners.
 
