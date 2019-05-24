@@ -6,7 +6,7 @@ services:
   - postgresql 
 env:
   global:
-  - CC_TEST_REPOTER_ID=4689ee4d5800bef59dd38644bf9fd9a6da6d9d5c125cc94e7d4745ad581c2817
+  - CC_TEST_REPOTER_ID=87180b6374b1702f56e1c628313afd2d156fa3751096d55c8c3a8e06f97ae4b3
 before_script:
   - npm install
   - npm install coveralls --save-dev
@@ -21,5 +21,5 @@ script:
   - nyc --reporter=lcov yarn run test
 
 after_success:
-  - npm run coveralls
+  - npm run coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

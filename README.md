@@ -25,6 +25,7 @@ QuickCredit app project is broken down into small task with pivotal tracker boar
 ### Travis CI
 [![Build Status](https://travis-ci.com/Morsetim/QuickCredit.svg?branch=develop)](https://travis-ci.com/Morsetim/QuickCredit)
 
+
 ### API Enpoint
 API Endpoints is hosted at https://quickcr.herokuapp.com/
 
