@@ -1,26 +1,13 @@
-import { Pool } from 'pg';
+import { Client } from 'pg';
 import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
 
 dotenv.config();
 
-let connectionString;
-
-if (process.env.NODE_ENV == 'production') {
-  connectionString = {
-    user: 'irizohhagtpyta',
-    database: 'd8l6f1inbgo5nv',
-    password: '760a36527410284fdf3bb17867cc6547a2e02709a047dca5a40dd4075d24adde',
-    host: 'ec2-23-21-148-223.compute-1.amazonaws.com',
-    port: 5432
-  };
-}
-
-if (process.env.NODE_ENV == 'development') {
-  connectionString = process.env.DEV_URL;
-}
-
-const pool = new Pool(connectionString);
-pool.connect();
+const connectionString = process.env.DEV_URL || 'development';
+const client = new Client(connectionString);
+client.connect();
+const hashedPassword = bcrypt.hashSync('123456', 10);
 
 const createTable = () => {
 
@@ -65,13 +52,21 @@ CREATE TABLE IF NOT EXISTS loanrepayment(
   amount INTEGER NOT NULL,
   monthlyInstallment INTEGER NOT NULL,
   balance INTEGER NOT NULL
-)`;
+);
 
-pool.query(createTableText, (err) => {
+INSERT INTO users(email, firstName, lastName, password, isAdmin)
+VALUES('admin@test.com','Admin', 'Etim', '${hashedPassword}', true);
+
+INSERT INTO users(email, firstName, lastName, password, homeAddress, workAddress)
+VALUES('user@test.com','User', 'Etim', '${hashedPassword}', '555, milton road', '555, milton road');
+
+`;
+
+client.query(createTableText, (err) => {
   if (err) {
     return err.message;
   }
-  pool.end();
+  client.end();
 });
 
 };
