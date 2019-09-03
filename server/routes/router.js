@@ -21,15 +21,15 @@ router.route('/users/:useremail/verify')
   .patch(authToken, checkAdmin, userController.verified);
 
 router.route('/users/:id')
-  .patch(authToken, userController.updateUserRole);
+  .patch(authToken, checkAdmin, userController.updateUserRole);
 // loans route
 router.route('/loans')
-  .get(authToken, loanController.allLoans)
+  .get(authToken, checkAdmin, loanController.allLoans)
   .post(authToken, loanValidator.applyLoan, loanController.apply);
 
 router.route('/loans/:loanId')
   .get(authToken, loanController.getOneLoan)
-  .patch(authToken, loanController.approved)
+  .patch(authToken, checkAdmin, loanController.approved)
 
 router.route('/loans/user')
   .get(authToken, loanController.userLoanList)
@@ -41,7 +41,7 @@ router.route('/loans/unrepaid')
 
 router.route('/loans/:loanId/repayment')
   .get(authToken, loanRepayments.repaymentHistory)
-  .post(authToken, loanRepayments.repaymentRecord, loanRepaymentValidation.postRepayment);
+  .post(authToken, checkAdmin, loanRepayments.repaymentRecord, loanRepaymentValidation.postRepayment);
 
 
 export default router;

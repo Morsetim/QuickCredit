@@ -15,8 +15,7 @@ class LoanController {
    */
   apply(req, res) {
     const { userId } = req.decoded;
-    const status = req.decoded.status
-    // console.log(req.decoded, '===================================');
+    const status = req.decoded.status;
     const { tenor, amount } = req.body;
     const interest = Number(amount) * (5 / 100);
     const principal = + Number(amount) + Number(interest);
@@ -31,18 +30,6 @@ class LoanController {
         })
     }
     loansData.query(`SELECT balance FROM loans where userId = '${userId}'`).then((loanFound) => {
-      console.log(loanFound.rows, '==========')
-      // if (loanFound.rowCount > 0) {
-      //   const recentLoanBalance = loanFound.rows[loanFound.rows.length - 1].balance;
-      //   if (recentLoanBalance !== 0) {
-      //     return res.status(400)
-      //       .json({
-      //         message: 'You not permitted to apply for this loan, pay your pending debt',
-      //         debt: recentLoanBalance
-      //       });
-      //   }
-      // }
-
       const sql = 'INSERT INTO loans( tenor, amount, paymentInstallment, balance, interest, userId, status) VALUES($1, $2, $3, $4, $5,$6, $7) RETURNING *';
       const params = [parseInt(tenor), parseInt(amount), parseInt(paymentInstallment), parseInt(balance), parseInt(interest), userId, status];
       loansData.query(sql, params).then(loan => {
