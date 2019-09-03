@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
 }
+
 .btn {
   background-color: #d3143d; /* Green */
   border: none;
@@ -22,13 +23,43 @@
 .background-primary{
   background-color:#d3143d;
 }
+.h2-text{
+  margin-top: 160px;
+  text-align: center;
+}
+.loan-details{
+  margin-top: 200px;
+  height: 400px;
+  width: 400px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  margin: auto;
+}
+#li-name{
+  color: #313030;
+  margin-left: 45px;
+}
+.hex-primary{
+color: #b9b9b9;
+font-weight: 700;
+}
+.details-ul{
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-top: -10px;
+}
 .main-container{
   height: 100vh;
   background-image: url('../images/11.jpg');
   display:flex;
-  flex-flow: column;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.general{
+  display: flex;
+  flex-direction: column;
 }
 .text-white{
   color:#fff;
@@ -51,26 +82,58 @@ margin-right:20px;
 .sign-in-link{
   
 }
-.site-titled{
-  margin-top: 55px;
-}
-.site-titled a{
-  text-decoration:none;
-}
 body{
+  /* background-image: url('../images/11.jpg'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 100%;
-    height: 100vh;
+    height: 100hv;
     margin: 0;
     padding: 0;
   }
-
-  .site-title{
+  /* dashboard container section */
+  .dash-board-container{
     display: flex;
-    flex-flow: column;
+    margin-top: 290px;
+    justify-content: center;
+    align-items: center;  
   }
-  .site-name{
-    /* margin-left: -12px */
+  .dash-board-container a{
+    text-decoration: none;
+    color: #c2cb42;
   }
+  .dashboard-content{
+    border: 1px solid #2b6898;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    width: 240px;
+    height: 160px;
+    background-color: #ffffff;
+    color:black;
+  }
+  ul li{
+    list-style-type: none;
+    padding: 10px;
+  }
+  #apply{
+    margin-left: -20px;
+    /* margin-right: 44px; */
+    font-size: 22px;
+    text-align: center;
+    margin-top: 25px;
+    width: 100%;
+  }
+  #money-li{
+    font-size: 28px;
+    color:black;
+    text-align: center;
+    margin-left: -25px;
+    width: 100%;
+  }
+  /* Ends here */
+
+
+  
   .first-div{
     display: flex;
     justify-content: space-between;
@@ -97,6 +160,7 @@ body{
   .nav-bar{
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     height: 80px;
     position: fixed;
     top: 0;
@@ -107,10 +171,6 @@ body{
     display: flex;
     flex-flow: column;
   }
-  #h1-sign{
-    margin-right: 125px;
-    color: #2b6898;
-}
   h4{
     color: black;   
   }
@@ -133,6 +193,9 @@ body{
   .ul-list:hover{
     background-color: rgb(101, 101, 240);
   }
+  h1, h4, #loc-name{
+    color: #7f7f7f;
+  }
   h4, #loc-name{
     color: #2b6898;
   }
@@ -147,13 +210,27 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 200px;
-        
+        margin-top: 200px; 
+      }
+      .loan-container2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -90px; 
+        margin-left: -10px;
+        flex-flow: column;
+      }
+      .loan-history-table th{
+        text-align: left;
+        background-color: #2b6898;
       }
       .loan-history-table{
           width: 70%;
           height: 70px;
+          border-collapse: collapse;
       }
+      tr:hover {background-color: #f5f5f5;}
+      tr:nth-child(odd) {background-color: #dad4d4;}
       td{
           width: 40%;
           text-align: center;
@@ -162,17 +239,18 @@ body{
       th{
         width: 40%;
         text-align: center;
+        padding:15px;
     }
     td, th {
-      border-bottom: 1px solid #2c3642;
+      border-bottom:none;
     }
     
       /* Ends here */
   
   .footer-div{
     height: 60px;
+    color: #f4f4f4;
     position: fixed;
-    color: black;
     bottom: 0;
     width: 100%;
     text-align: center;
@@ -188,16 +266,15 @@ body{
     width: 100%;
   }
   .para{
-    font-size: 22px;
-    width: 70%;
+    font-size: 21px;
+    width: 65%;
     text-align: center;
     font-family: 'Anonymous Pro';
-    /* font-size: 22px;  */
   }
   input{
     padding: 12px;
-    /* background-color: #2b6898; */
-    color: black;
+    background-color: #2b6898;
+    color: #f4f4f4;
     margin-top: -15px;
     border-radius: 12px;
     box-sizing: border-box;
@@ -220,78 +297,10 @@ body{
     cursor: pointer;
     text-align: center;
     font-size: 15px;
-    /* background-color: #2b6898; */
     color: #f4f4f4;
     font-weight: 300;
     padding-top: 25px;
 }
-.element-container{
-  background-color:#f4f4f4;
-  display: flex;
-  margin: auto;
-  width: 600px;
-  height: 470px;
-  flex-flow: column;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  padding :0px;
-  margin-top: 10px;
-  
-}
-.form-container{
-display: flex;
-flex-flow: column;
-width: 430px;
-margin-left: 70px;
-/* margin-top: -10px */
-}
-#signup{
-  margin-top: -13px;
-}
-input[type=email], input[type=password], [type=text], input[type=number]{
-  width: 70%;
-  padding: 10px 6px;
-  margin: 8px 0px 8px 125px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-button{
-  width: 70%;
-  margin: 8px 0px 8px 125px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 17px;
-  padding: 5px;
-  color:white;
-  background-color:#2b6898;
-
-}
-.forget-password-div{
-  width: 100%;
-  /* margin-left: 138px; */
-  /* border: 1px solid white; */
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin-left: 55px
-}
-#forget-password{
-  margin: 0px 0px 0px 28px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 100%;
-  color: #92bf20;
-  }
-  #forget-password a{
-    color: #92bf20;
-    padding-right: 15px
-  }
-  #a-forget-password{
-    color: #f4f4f4;
-    text-decoration: none
-  }
-
 .fourth-div-element:hover{
   background-color: #2b6898; 
 }
@@ -302,144 +311,40 @@ button{
   margin: 0 5px 0 5px;
 }
   /* Ends here */
-  @media screen and (max-width: 680px){
-    .element-container{
-      background-color:#2b6898;
-      display: flex;
-      margin: auto;
-      width: 500px;
-      height: 550px;
-      flex-flow: column;
-    }
-  .account-seq{
-    width: 80%;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rebeccapurple;
-    padding: 12px;
-  }
- 
-  .third-div{
-    /* margin-top: 200px; */
-    color: white;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  #para{
-    font-size: 16px;
-    width: 280px;
-    text-align: center;
-  }
-  .fourth-div-element{
-    padding: 10px;
-    /* margin: 2px; */
-    width: 111px;
-    height: 100px;
-    font-size: 18px;
+/* Sign in section */
+.site-title{
+  display: flex;
+  flex-flow: column;
 }
-  /* Ends Here */
-  }
-  @media screen and (max-width: 480px){
-    .element-container{
-      width: 40ch;
-      margin-right: 49px;
-      height: 88%;
-    }
-    .form-container{
-      display: flex;
-      flex-flow: column;
-      width: 490px;
-      margin-left: 39px;
-      margin-top: 23px;
-      }
-    input[type=email]{
-      width: 75%;
-    }
-    input[type=password]{
-      width: 75%;
-    }
-    .account-seq{
-      width: 65%;
-    }
-    /* Index page section */
-  html{
-      height: 100vh;
-    }
-    
-    .third-div{
-      /* margin-top: 200px; */
-      color: white;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    #para{
-      font-size: 16px;
-      width: 280px;
-      text-align: center;
-    }
-    .fourth-div-element{
-      padding: 10px;
-      /* margin: 2px; */
-      width: 111px;
-      height: 100px;
-      font-size: 18px;
-  }
-    /* Ends Here */
-  }
-  
+.site-name{
+  width:200px;
+}
+.site-name a{
+  text-decoration: none;
+}
+.element-container-sign-in{
+  width: 440px;
+  height: 295px;
+  padding :0px;
+  margin-top: 80px;
+  margin-left: 270px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
 
-  .element-container-sign-in{
-    /* background-color: #fff; */
-    display: flex;
-    margin: auto;
-    width: 440px;
-    height: 295px;
-    flex-flow: column;
-    padding :0px;
-    /* margin-left: 42px; */
-    margin-top: 50px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  }
-  #loc-name{
-    font-size: 10px;
-  }
-  #loc{
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin-bottom: -18px;
-    font-size: 22px;
-  }
-  /* .login-password-recovery{
-    display: flex;
-  } */
-  #signup{
-    /* margin-right: 99px; */
-    margin-top: -33px;
-  }
-  .form-container{
+.form-container{
   display: flex;
   flex-flow: column;
   width: 430px;
-  /* margin-left: 19px; */
   margin-top: 30px
   }
   
   input[type=email], input[type=password], [type=text], input[type=number]{
     width: 70%;
     padding: 10px 6px;
-    /* background-color: #fff; */
-    margin: 8px 0px 8px 8px;
+    margin: 8px 0px 8px 58px;
     display: inline-block;
     color: black;
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -447,7 +352,7 @@ button{
   }
 button{
     width: 70%;
-    margin: 8px 0px 8px 8px;
+    margin: 8px 0px 8px 58px;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 17px;
@@ -456,12 +361,19 @@ button{
     background-color:#2b6898;
 }
   .forget-password-div{
+    margin-left: 35px;
     width: 80%;
     display: flex;
     justify-content: space-around;
   }
+  #a-forget-password:hover{
+    color: #8fb4cf;
+  }
+  #create-account:hover{
+    color: #8fb4cf;
+  }
   #forget-password{
-    margin: 0px 0px 0px 165px;
+    /* margin: 0px 0px 0px 65px; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 170px;
     color: #2b6898;
@@ -473,240 +385,63 @@ button{
     #create-account{
       font-family: Georgia, 'Times New Roman', Times, serif;
       margin-top: 9px;
-      /* padding-left: 2px; */
     }
     a#create-account{
       color: #f4f4f4;
       text-decoration: none;
-      /* margin-left: 1px; */
+
     }
     #forget-password a{
       text-decoration-line: none
     }
-    /* Apply container section */
-    #apply-container{
-      margin-top: 105px;
-      height: 500px;
+/* Ends here... */
+
+  /* @media screen and (max-width: 1200px){
+    .element-container-sign-in{
+      width:370px;
+      margin-left: 140px;
+      border: 2px solid red;
     }
-    #apply-form-container{
-      margin-top: -25px;
-    }
-    #apply1{
-      margin-top: -35px;
-    }
-    .tenor-container{
-      width: 70%;
-      margin: 8px 0px 8px 125px;
-      font-size: 15px;
-      font-weight: 520;
-      color: #2c3642;
-    }
-    .selection{
-      width: 80%;
-      padding: 10px 6px;
-      margin-left: 19px
-    }
-    /* Ends here */
-    /* dashboard container section */
-    .dash-board-container{
-      display: flex;
-      margin-top: 290px;
-      justify-content: center;
-      align-items: center; 
-    }
-    .dash-board-container a{
-      text-decoration: none;
-      color: #c2cb42;
-    }
-    .dashboard-content{
-      border: 1px solid #2b6898;
-      width: 244px;
-      height: 160px;
-      background-color: #ffffff;
-      color:black;
-      /* padding-right: 30px; */
-    }
-    ul li{
-      list-style-type: none;
-      padding: 10px;
-    }
-    #apply{
-      /* margin-top: -9px; */
-      margin-right: 45px;
-      font-size: 22px;
-      text-align: center;
-      margin-top: 25px;
-    }
-    #money-li{
-      /* margin-bottom:-50px; */
-      margin-right: 45px;
-      font-size: 28px;
-      color:black;
-      text-align: center;
-    }
-    /* Ends here */
-  
-    /* footer section */
-  .footer-div{
-    height: 60px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
-  @media screen and (max-width: 480px){
-  /* Apply section */
-  body{
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-  }
-  #apply-form-container{
-    width: 100%;
-    margin: auto;
-    margin-left: 75px;
-  }
-  #apply-container{
-    width: 75%;
-    height: 460px;
-    margin-right: 25px;
-  }
-  h4, #loc-name, .fa-skating{
-    margin-left: 2px;
-  }
-  #loc-name{
-    margin-left: 28px;
-  }
-  #apply1{
-    font-size: 22px;
-    margin-top: -15px;
-    margin-left: -15px
-  }
-  input[type=email], input[type=password],input[type=text], input[type=number]{
-    width: 40%;
-    padding: 14px 10px;
-    margin: 4px 0px 4px 2px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 12px;
-    height: 36px;
-  }
-  input[type=submit]{
-    width: 40%;
-    /* padding: 14px 10px; */
-    margin-left: 1px;
-  }
-  button{
-    width: 40%;
-    /* padding: 14px 10px; */
-    margin-left: 1px;
-  }
-  #signup{
-    margin-right: 99px;
-    font-size: 18px;
-    margin-bottom: -19px;
-    margin-top: -1px;
-  }
-  .tenor-container{
-    display: flex;
-    width: 47%;
-    margin-left: 2px;
-    font-size: 15px;
-    color: #2c3642;
-  }
-  #tenor-name{
-    margin-top: 10px
-  }
-  /* .login-password-recovery{
-    width: 100%;
+
   } */
-  .forget-password-div{
-    display: flex;
-    justify-content: space-around;
-    width: 38%
-  }
-  #forget-password{
-    color: #2b6898;
-    margin: 2px 0px 2px 65px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 250px
+  @media screen and (max-width: 960px){
+    .element-container-sign-in{
+      margin-left: 200px;
     }
-  /* Ends here */
-  /* Sign-in section */
-  .second-div{
-    /* margin-left: 20px; */
+
   }
-  .inner-first-div{
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
-  }
-  #sign-div{
-    margin-right: 8px;
-  }
-  .element-container-sign-in{
-    width: 74%;
-    margin-left: 58px;
-    height: 320px;
-    margin-top: 150px
-  }
-  .element-container{
-    width: 40ch;
-    margin-right: 49px;
-    height: 88%;
-  }
-  #h1-sign{
-      margin-right: 44px;
-  }
-  
-  .login-password-recovery{
-    /* border: 1px solid red; */
-  }
-  #a-forget-password{
-    font-size: 14px;
-  }
-  #create-account{
-    font-size: 14px;
-  }
-  .forget-password-div{
-    width: 90%;
-    margin-left: 20px;
-  }
-  .form-container{
-    display: flex;
-    flex-flow: column;
-    width: 490px;
-    margin-left: 49px;
-    margin-top: -10px;
+  @media screen and (max-width: 720px){
+    .element-container-sign-in{
+      margin-left: 100px;
     }
+
+  }
+  @media screen and (max-width: 680px){
+    .element-container-sign-in{
+      margin-left: 120px;
     
-  /* Ends here */
-  /*Dashboard for a loan section  */
-  .inner-first-div{
-    width: 44%;
+    }
+
   }
-  .dash-board-container{
-   display: flex;
-   margin-left: 61px;
+  @media screen and (max-width: 640px){
+    .element-container-sign-in{
+      width:370px;
+      margin-left: 80px;
+    }
+    .form-container{
+      margin-left: -28px
+      }
+
   }
-  .dashboard-content{
-    width: 70%;
-    text-align: center;
+  @media screen and (max-width: 580px){
+    .element-container-sign-in{
+      width:370px;
+      margin-left: 30px;
+    }
+    .form-container{
+      margin-left: -28px
+      }
+    .forget-password-div{
+      margin-left: 30px;
+    }
   }
-  #apply{
-    margin-top: 38px;
-  
-    font-size: 14px;
-    text-align: center;
-  }
-  #money-li{
-    /* width: 80%; */
-    text-align: center;
-    font-size: 18px;
-    color:black;
-  }
-  /*Ends here  */
-  }
-  
