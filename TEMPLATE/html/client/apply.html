@@ -4,54 +4,62 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <link rel="stylesheet" href="../../css/sign-up.css">
+ <link rel="stylesheet" href="../../css/admindashboard.css">
  <link href='https://fonts.googleapis.com/css?family=Anonymous Pro' rel='stylesheet'>
  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'> 
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
- <title>QuickCredit|Apply</title>
+ <title>QuickCredit|User|Dashboard</title>
 </head>
 <body>
-<div class="main-container">
-<div class="side-bar">
-    <div id="ul-div">
-        <ul class="ul-sidebar-list">
-          <li ><a href="index.html"  class="sidebar-list">Home</a></li>
-          <li ><a href="apply.html" class="sidebar-list primary-blue" id="all-loans">Apply</a></li>
-          <li class="loanhistory"><a href="../client/loanhistory.html" class="sidebar-list">Loanhistory</a></li>
-          <li ><a href="./dashboard.html"class="sidebar-list" >Dashboard</a></li>
-          
-        </ul>
-        <ul>
-            <li ><a href="../client/signin.html" class="sidebar-list">Log out</a></li>
-        </ul>
-        </div>
- 
- <div class="apply-element-container" id="apply-container">
-  <form  action="loanhistory.html"class="form-container" id="apply-form-container">
-    <h1 class="blue-primary" id="apply1">Apply</h1> 
-    <input type="text" placeholder="Enter Your First name..." required>
-      <input type="text" placeholder="Enter Your Lastname..." required>
-      <input type="email" placeholder="Enter Your Email..." required>
-      <input type="text" placeholder="Enter Your Home Address..." required>
-      <input type="text" placeholder="Enter Your Work Address..." required>
-      <div class="tenor-container">
-          <label for="tenor" id="tenor-name">Tenor</label>
-          <select class="selection">
-              <option class="tenor-option" disabled selected>Choose a plan</option>
-              <option>3 month</option>
-              <option>6 month</option>
-              <option>9 month</option>
-              <option>12 month</option>
-            </select>
-          </div>
-      <input type="number" placeholder="Loan Amount, i.e. &#8358 0.00" required>
-      <button>Submit</button>
-  </form>
+<div class="main-container1">
+  
+ <div class="dasboard-side-bar">
+    <h1 class="site-name"><a class="text-white" href="index.html">Quick<span class="text-primary">Credit</span></a></h1>
+  <ul class="ul-sidebar-list">
+    <li ><a href="index.html"  class="sidebar-list">Home</a></li>
+    <li ><a href="apply.html" class="sidebar-list">Apply</a></li>
+    <li class="loanhistory"><a href="../client/loanhistory.html" class="sidebar-list">Loanhistory</a></li>
+    <li ><a href="dashboard.html"class="sidebar-list" id="all-loans">Dashboard</a></li>   
+  </ul>
+  <ul>
+      <li><a href="../client/signin.html" id="sidebar-list" class="sidebar-list">Log out</a></li>
+  </ul>
 </div>
+<div class="dash-board-container">
+    <div class="element-container-sign-in">
+        <form class="form-container">
+          <h1>Apply</h1>
+          <label id="amount">Amount :<input type="number" placeholder="Loan Amount, i.e. &#8358 0.00" required></label>
+          <div class="purpose-container">
+              <label for="amount" id="purpose-name">Purpose :</label>
+              <select class="selection-one">
+                  <option class="tenor-option" disabled selected>Choose a purpose</option>
+                  <option>Travel</option>
+                  <option>School</option>
+                  <option>Pay Debt</option>
+                  <option>Business</option>
+                </select>
+              </div>  
+          <div class="tenor-container">
+                <label for="tenor" id="tenor-name">Tenor :</label>
+                <select class="selection-two">
+                    <option class="tenor-option" disabled selected>Choose a plan</option>
+                    <option>3 month</option>
+                    <option>6 month</option>
+                    <option>9 month</option>
+                    <option>12 month</option>
+                  </select>
+                </div>
+                <button>Submit</button>
+    </form>
+  </div>
 </div>
+<div class="footer-div">Copyright © 2019. QuickCredit</div>
 </div>
- <div class="footer-div">copyright © 2019. QuickCredit</div>
+
 </body>
 </html>
 
+
+</html>

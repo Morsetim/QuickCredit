@@ -5,41 +5,43 @@ import loanController from '../controllers/loanController';
 import authToken from '../middlewares/tokenAuthentication';
 import loanValidator from '../middlewares/loanValidation';
 import loanRepayments from '../controllers/loanRepayment';
-import repaymentValidator from '../middlewares/loanRepaymentValidation';
-import verifyValidation from '../middlewares/verifiedValidation';
+import loanRepaymentValidation from '../middlewares/loanRepaymentValidation';
+import checkAdmin from '../middlewares/checkAdmin';
 
 const router = express.Router();
 
+// user route
 router.route('/auth/signup')
-.post(userValidator.signUp, userController.signUp);
+  .post(userValidator.signUp, userController.signUp);
 
 router.route('/auth/signin')
-.post(userValidator.signIn, userController.signIn);
+  .post(userValidator.signIn, userController.signIn);
 
 router.route('/users/:useremail/verify')
-.patch(userController.verified);
+  .patch(authToken, checkAdmin, userController.verified);
 
-
+router.route('/users/:id')
+  .patch(authToken, checkAdmin, userController.updateUserRole);
+// loans route
 router.route('/loans')
-.get(loanController.allLoans)
-router.route('/loans/repaid')
-.get(loanController.repaidLoan)
-router.route('/loans/unrepaid')
-.get(loanController.unrepaidLoan);
+  .get(authToken, checkAdmin, loanController.allLoans)
+  .post(authToken, loanValidator.applyLoan, loanController.apply);
 
 router.route('/loans/:loanId')
-.get(authToken, loanController.getOneLoan)
-.patch(loanRepayments.repaymentHistory)
+  .get(authToken, loanController.getOneLoan)
+  .patch(authToken, checkAdmin, loanController.approved)
+
+router.route('/loans/user')
+  .get(authToken, loanController.userLoanList)
+
+router.route('/loans/repaid')
+  .get(authToken, loanController.repaidLoan)
+router.route('/loans/unrepaid')
+  .get(authToken, loanController.unrepaidLoan);
+
 router.route('/loans/:loanId/repayment')
-// .get(userController.repaymentHistory)
-// router.route('/loans/:loanId/repayment')
-// .post(repaymentValidator.postRepayment, userController.createRepaymentRecord)
-
-router.route('/loans')
-.post(loanValidator.applyLoan, loanController.apply)
-
-
-
+  .get(authToken, loanRepayments.repaymentHistory)
+  .post(authToken, checkAdmin, loanRepayments.repaymentRecord, loanRepaymentValidation.postRepayment);
 
 
 export default router;

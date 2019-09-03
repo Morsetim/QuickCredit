@@ -9,36 +9,41 @@
  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'> 
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
- <title>QuickCredit|Admin-Dashboard</title>
+ <title>QuickCredit|User|Dashboard</title>
 </head>
 <body>
-  <div class="main-container1">
+<div class="main-container1">
  <div class="dasboard-side-bar">
-   <div id="ul-div">
+  <h1 class="site-name"><a class="text-white" href="index.html">Quick<span class="text-primary">Credit</span></a></h1>
   <ul class="ul-sidebar-list">
     <li ><a href="index.html"  class="sidebar-list">Home</a></li>
     <li ><a href="apply.html" class="sidebar-list">Apply</a></li>
     <li class="loanhistory"><a href="../client/loanhistory.html" class="sidebar-list">Loanhistory</a></li>
-    <li ><a href="repayment-record.html"class="sidebar-list" id="all-loans">Dashboard</a></li>
-    
+    <li ><a href="repayment-record.html"class="sidebar-list" id="all-loans">Dashboard</a></li>   
   </ul>
   <ul>
-      <li ><a href="../client/signin.html" class="sidebar-list">Log out</a></li>
+      <li ><a href="../client/signin.html" id="sidebar-list" class="sidebar-list">Log out</a></li>
   </ul>
-  </div>
 </div>
 <div class="dash-board-container">
-    <a href="apply.html"><ul class="dashboard-content">
-        <li id="apply">Apply for a loan</li>
+<div class="dash-board-container-content">
+    <ul class="dashboard-content"><a href="apply.html">
+        <li class="apply">Loan Apply</li>
         <li id="money-li">&#8358; 0.00</li>
-    </ul></a>
-    <a href="../client/loanhistory.html"><ul class="dashboard-content">
-        <li id="apply">Loan History</li>
-        <li id="money-li">0</li>
-    </ul></a>
+    </a></ul>
+    <ul class="dashboard-content" id="dashboard-content"><a href="../client/loanhistory.html">
+        <li class="apply">Loan History</li>
+        <li id="loan-li">0</li>
+    </a></ul>
+    <ul class="dashboard-content"><a href="../client/loanhistory.html">
+        <li class="apply">Eligibility</li>
+        <li id="eli-li">?</li>
+    </a></ul>
 </div>
 </div>
 <div class="footer-div">Copyright © 2019. QuickCredit</div>
+</div>
+
 </body>
 </html>
 

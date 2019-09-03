@@ -3,12 +3,12 @@
 <head>
     <title>Code coverage report for server/middlewares/loanRepaymentValidation.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="..\..\prettify.css" />
-    <link rel="stylesheet" href="..\..\base.css" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(..\..\sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">server/middlewares</a> loanRepaymentValidation.js
+      <a href="../../index.html">All files</a> / <a href="index.html">server/middlewares</a> loanRepaymentValidation.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.45% </span>
+        <span class="strong">4% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/29</span>
+        <span class='fraction'>1/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/30</span>
+        <span class='fraction'>0/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.45% </span>
+        <span class="strong">4% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/29</span>
+        <span class='fraction'>1/25</span>
       </div>
     </div>
     <p class="quiet">
@@ -90,23 +90,11 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,10 +139,10 @@
 &nbsp;
 class postRepaymentValidator{
     postRepayment(req, res, next)<span class="cstat-no" title="statement not covered" >{</span>
-        const {loanId, createdOn, amount, monthlyInstallment, paidAmount, balance} = <span class="cstat-no" title="statement not covered" >req.body</span>
+        const {loanId, createdOn, amount, monthlyInstallment, balance} = <span class="cstat-no" title="statement not covered" >req.body</span>
         const fieldsErrors = <span class="cstat-no" title="statement not covered" >{};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if(loanId == undefined || createdOn == undefined || amount == undefined || monthlyInstallment == undefined ||paidAmount == undefined || balance == undefined){</span>
+<span class="cstat-no" title="statement not covered" >        if(loanId == undefined || createdOn == undefined || amount == undefined || monthlyInstallment == undefined || balance == undefined){</span>
 <span class="cstat-no" title="statement not covered" >            return res.status(400).json({status:'Failed', message:'All or some fields are empty'});</span>
     }
 <span class="cstat-no" title="statement not covered" >    if(loanId.search(/^[0-9]*$/) === -1){</span>
@@ -174,12 +162,6 @@ class postRepaymentValidator{
     }
 <span class="cstat-no" title="statement not covered" >    if(!validator.isLength(monthlyInstallment, {min:4, max:6})){</span>
 <span class="cstat-no" title="statement not covered" >        fieldsErrors.monthlyInstallment = 'Loans can only be 1000 above and 500,000 below';</span>
-    }
-<span class="cstat-no" title="statement not covered" >    if(paidAmount.search(/^[0-9]*$/) === -1){</span>
-<span class="cstat-no" title="statement not covered" >        fieldsErrors.paidAmount = 'Please input numbers';</span>
-    }
-<span class="cstat-no" title="statement not covered" >    if(!validator.isLength(paidAmount, {min:4, max:6})){</span>
-<span class="cstat-no" title="statement not covered" >        fieldsErrors.paidAmount = 'Loans can only be 1000 above and 500,000 below';</span>
     }
 <span class="cstat-no" title="statement not covered" >    if(balance.search(/^[0-9]*$/) === -1){</span>
 <span class="cstat-no" title="statement not covered" >        fieldsErrors.balance = 'Please input numbers';</span>
@@ -202,10 +184,10 @@ export default new postRepaymentValidator();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 12 2019 17:12:22 GMT+0100 (West Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 23 2019 15:53:03 GMT+0100 (West Africa Standard Time)
 </div>
 </div>
-<script src="..\..\prettify.js"></script>
+<script src="../../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -213,7 +195,7 @@ window.onload = function () {
         }
 };
 </script>
-<script src="..\..\sorter.js"></script>
-<script src="..\..\block-navigation.js"></script>
+<script src="../../sorter.js"></script>
+<script src="../../block-navigation.js"></script>
 </body>
 </html>
