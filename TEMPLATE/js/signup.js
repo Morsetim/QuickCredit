@@ -1,11 +1,16 @@
-const signUp = (e) =>{
+// const getElemenByIdValue = (field) => document.getElementById(field).value;
+
+
+const signUp = (e) => {
+    document.getElementById('signup-loading').style.display = 'block';
+
     e.preventDefault();
 
-    const obj = {
-        firstname : document.getElementById('firstname').value,
-        lastname : document.getElementById('lastname').value,
-        homeaddress : document.getElementById('homeaddress').value,
-        workaddress : document.getElementById('workaddress').value,
+    const userData = {
+        firstName : document.getElementById('firstname').value,
+        lastName : document.getElementById('lastname').value,
+        homeAddress : document.getElementById('homeaddress').value,
+        workAddress : document.getElementById('workaddress').value,
         email : document.getElementById('email').value,
         password : document.getElementById('password').value
     };
@@ -14,9 +19,21 @@ const signUp = (e) =>{
         headers : {
             'Content-Type' : 'application/json'
         },
-        body : JSON.stringify(obj)
+        body : JSON.stringify(userData)
     };
-    fetch('localhost:4000/api/v1/auth/signup', option)
+
+   return fetch('http://localhost:4000/api/v1/auth/signup', option)
     .then(res => res.json())
-    .then(data)
+    .then(data => {
+        if(data.status == 201){
+            localStorage.setItem('user token', data.token);
+            localStorage.setItem('Verification', data.data.status);
+            location.replace('./dashboard.html');
+        console.log(data,'-----------------------------------data------------------------')
+        }
+    }).catch(e => console.log(e.response));
 }
+
+
+
+document.getElementById('signup-form').addEventListener('submit', signUp, false)

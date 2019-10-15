@@ -53,6 +53,7 @@ font-weight: 700;
   height: 100vh;
   background-image: url('../images/11.jpg');
   display:flex;
+  flex-flow: column;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -79,9 +80,7 @@ h1{
 .sign-in-link{
 margin-right:20px;
 }
-.sign-in-link{
-  
-}
+
 body{
   /* background-image: url('../images/11.jpg'); */
     background-repeat: no-repeat;
@@ -322,11 +321,20 @@ body{
 .site-name a{
   text-decoration: none;
 }
+#signin-loading{
+  color: #ffffff;
+  width: 100%;
+  margin: auto;
+  display: none;
+  margin-bottom: -150px;
+  text-align: center;
+ }
 .element-container-sign-in{
   width: 440px;
   height: 295px;
   padding :0px;
-  margin-top: 80px;
+  margin-top: 150px;
+  margin-bottom: 220px;
   margin-left: 380px;
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
 }

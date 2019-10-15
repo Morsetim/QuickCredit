@@ -74,9 +74,7 @@ h1{
 .sign-in-link{
 margin-right:20px;
 }
-.sign-in-link{
-  
-}
+
 body{
   /* background-image: url('../images/11.jpg'); */
     background-repeat: no-repeat;
@@ -221,9 +219,7 @@ body{
         margin-left: -10px;
         flex-flow: column;
       }
-      table, th, td {
-        /* border: 1px solid black; */
-      }
+     
       .loan-history-table th{
         text-align: left;
         background-color: #2b6898;

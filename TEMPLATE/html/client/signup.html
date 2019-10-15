@@ -19,8 +19,11 @@
     <div class="site-title">
       <h1 class="site-name "><a class="text-white" href="index.html">Quick<span class="text-primary">Credit</span></a></h1>
     </div>
+    <div id="signup-loading">
+      <h2>Loading...</h2>
+    </div>
     <div class="element-container-sign-in">
-            <form class="form-container">
+            <form class="form-container" id="signup-form"> 
             <h1 class="blue-primary" id="signup">Sign up</h1>
             <input type="text" id="firstname" placeholder="Enter Your First name..." required>
             <input type="text" id="lastname"placeholder="Enter Your Lastname..." required>
@@ -28,9 +31,9 @@
             <input type="text" id="workaddress"placeholder="Enter Your Work Address..." required>
             <input type="email" id="email" placeholder="Enter Your Email..." required>
             <input type="password" id="password" placeholder="Enter Your Password..." required>
-            <button>Submit</button>
+            <button >Submit</button>
         </form>
-        <div class="forget-password-div">
+        <div class="forget-password-div" >
             <div><a id="a-forget-password" href="">Forget Password?</a></div>
             <div><a id="sign-in" href="signin.html">Sign-in</a></div>
         </div>
@@ -39,6 +42,7 @@
        </div>
     <div class="footer-div">Copyright © 2019. QuickCredit</div>
   </div>
+  <script src="./../../js/signup.js"></script>
 </body>
 
 </html>
