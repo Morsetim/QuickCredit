@@ -2,12 +2,15 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import apiRoute from './routes/router';
 import debug from 'debug';
+import cors from 'cors';
 
 
 // const Debug = debug('checker');
 
+
 const app = express();
 const port = parseInt((process.env.PORT), 10) || 4000
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

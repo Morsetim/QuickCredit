@@ -320,11 +320,19 @@ body{
 .site-name a{
   text-decoration: none;
 }
+#signup-loading{
+  color: #ffffff;
+  width: 100%;
+  margin: auto;
+  display: none;
+  margin-bottom: -15px;
+  text-align: center;
+ }
 .element-container-sign-in{
   width: 440px;
   height: 460px;
   padding :0px;
-  margin-top: 15px;
+  margin-top: 55px;
   margin-left: 380px;
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
