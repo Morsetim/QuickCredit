@@ -1,6 +1,7 @@
 import { Client } from 'pg';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
+import configuration from './../config/config';
 
 dotenv.config();
 
