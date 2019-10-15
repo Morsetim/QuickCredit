@@ -4,7 +4,10 @@ import bcrypt from 'bcrypt';
 
 dotenv.config();
 
-const connectionString = process.env.DEV_URL || 'development';
+const env = process.env.NODE_ENV || 'development';
+const config = configuration[env];
+const connectionString = config.url;
+
 const client = new Client(connectionString);
 client.connect();
 const hashedPassword = bcrypt.hashSync('123456', 10);
