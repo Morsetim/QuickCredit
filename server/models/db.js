@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import configuration from './../config/config';
 
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 console.log(env, '===============env');
 
 const config = configuration[env];
