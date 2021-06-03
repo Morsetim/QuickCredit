@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon --watch server --exec babel-node -- server/app.js",
     "postinstall": "babel server -d build",
-    "start": "node build/app.js",
+    "start": "set NODE_ENV=production&& npm run migrate&& babel-node -- server/app.js",
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require @babel/register ./server/spec/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint server/",
@@ -52,5 +52,8 @@
     "supertest": "^3.4.2",
     "swagger-jsdoc": "^3.2.9",
     "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "cypress": "^3.4.1"
   }
 }

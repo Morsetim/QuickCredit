@@ -65,9 +65,7 @@ class userValidator{
         if(!validator.isEmail(email)){
             signErrors.email = 'Field must be an Email format';
         }
-        if(!validator.isAlpha(password)){
-            signErrors.password = 'Fields must alphabets';
-        }
+        
         if(!validator.isEmpty(password)){
             if(!validator.isLength(password, {min:6})){
                 signErrors.password = 'Password length must be at least six characters long';

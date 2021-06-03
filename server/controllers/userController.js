@@ -22,10 +22,16 @@ class UserController {
         const params = [firstName, lastName, email, hashedPassword, homeAddress, workAddress];
         userData.query(sql, params)
           .then((user) => {
+            console.log(user.rows[0]);
             const payload = {
-              userId: user.rows[0].id,
-              email, firstName, lastName,
-              homeAddress, workAddress,
+            userId: user.rows[0].id,
+            email: user.rows[0].firstName,
+            firstName: user.rows[0].email,
+            lastName: user.rows[0].lastName,
+            homeAddress: user.rows[0].homeAddress,
+            workAddress: user.rows[0].workAddress,
+            status: user.rows[0].status,
+            isAdmin: user.rows[0].isadmin
             };
             const token = jwt.sign(payload, process.env.SECRET_KEY, {
               expiresIn: 60 * 60 * 10 // 10 hours
@@ -35,6 +41,10 @@ class UserController {
               .json({
                 status: 201,
                 message: 'Successfully created QuickCredit account',
+                data : {
+                  status: user.rows[0].status,
+                  isAdmin: user.rows[0].isAdmin
+                },
                 token: token
               });
           }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }));
@@ -54,13 +64,21 @@ class UserController {
             lastName: user.rows[0].lastName,
             homeAddress: user.rows[0].homeAddress,
             workAddress: user.rows[0].workAddress,
+            status: user.rows[0].status,
+            isAdmin: user.rows[0].isadmin
           };
-          const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 10 }); // Expires in 10 hours
+          console.log(payload)
+          const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 }); // Expires in 24 hours
           req.token = token;
           return res.status(201)
             .json({
               status: 'Success',
               message: 'successfull login',
+              data : {
+                userId : user.rows[0].id,
+                isAdmin: user.rows[0].isadmin,
+                
+              },
               token
             });
         }
@@ -75,13 +93,17 @@ class UserController {
 
   verified(req, res) {
     const { useremail } = req.params;
-    const userProfile = `UPDATE users SET status =$1 WHERE email = $2 RETURNING *`;
+    // const {isAdmin} = req.decoded
+    const userProfile = `UPDATE users SET status =$1 WHERE email = $2 RETURNING*`;
     const params = ['verified', useremail];
     db.query(userProfile, params).then(user => {
+
       return res.status(201)
         .json({
           status: 201,
           data: user.rows[0]
+          // new_status: user.rows[0].status,
+          // token:token
         });
     }).catch(err => res.status(500).json({ status: 'Failed', message: err.message }))
   }

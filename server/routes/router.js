@@ -5,10 +5,8 @@ import loanController from '../controllers/loanController';
 import authToken from '../middlewares/tokenAuthentication';
 import loanValidator from '../middlewares/loanValidation';
 import loanRepayments from '../controllers/loanRepayment';
-import checkAdmin from '../controllers/helpers/checkAdmin';
-import repaymentValidator from '../middlewares/loanRepaymentValidation';
 import loanRepaymentValidation from '../middlewares/loanRepaymentValidation';
-import checkIfVerify from '../controllers/helpers/checkVerify';
+import checkAdmin from '../middlewares/checkAdmin';
 
 const router = express.Router();
 
@@ -23,26 +21,26 @@ router.route('/users/:useremail/verify')
   .patch(authToken, checkAdmin, userController.verified);
 
 router.route('/users/:id')
-  .patch(authToken, checkAdmin, userController.updatehUserRole);
+  .patch(authToken, checkAdmin, userController.updateUserRole);
 // loans route
 router.route('/loans')
   .get(authToken, checkAdmin, loanController.allLoans)
-  .post(authToken, checkIfVerify, loanValidator.applyLoan, loanController.apply);
+  .post(authToken, loanValidator.applyLoan, loanController.apply);
 
 router.route('/loans/:loanId')
   .get(authToken, loanController.getOneLoan)
-  .patch(authToken, loanController.approvedb)
+  .patch(authToken, checkAdmin, loanController.approved)
 
 router.route('/loans/user')
   .get(authToken, loanController.userLoanList)
 
 router.route('/loans/repaid')
-  .get(authToken, checkAdmin, loanController.repaidLoan)
+  .get(authToken, loanController.repaidLoan)
 router.route('/loans/unrepaid')
-  .get(authToken, checkAdmin, loanController.unrepaidLoan);
+  .get(authToken, loanController.unrepaidLoan);
 
 router.route('/loans/:loanId/repayment')
-  .get(authToken, checkAdmin, loanRepayments.repaymentHistory)
+  .get(authToken, loanRepayments.repaymentHistory)
   .post(authToken, checkAdmin, loanRepayments.repaymentRecord, loanRepaymentValidation.postRepayment);
 
 
