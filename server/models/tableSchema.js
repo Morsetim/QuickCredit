@@ -5,7 +5,7 @@ import configuration from './../config/config';
 
 dotenv.config();
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 const config = configuration[env];
 const connectionString = config.url;
 
